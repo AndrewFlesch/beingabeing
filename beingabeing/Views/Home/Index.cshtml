@@ -1,106 +1,688 @@
-﻿@{
+﻿@model  beingabeing.Models.ViewModels.HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+<div class="entrysection">
+    <div class="buttonheader">Mood?</div>
+    <button type="button" class="btn" value="Anxious" data-toggle="modal" data-target="#moodModal">Anxious</button>
+    <button type="button" class="btn" value="Fine" data-toggle="modal" data-target="#moodModal">Fine</button>
+    <button type="button" class="btn" value="Fulfilled" data-toggle="modal" data-target="#moodModal">Fulfilled</button>
+    <button type="button" class="btn" value="Happy" data-toggle="modal" data-target="#moodModal">Happy</button>
+    <button type="button" class="btn" value="Lazy" data-toggle="modal" data-target="#moodModal">Lazy</button>
+    <button type="button" class="btn" value="Productive" data-toggle="modal" data-target="#moodModal">Productive</button>
+    <button type="button" class="btn" value="Sad" data-toggle="modal" data-target="#moodModal">Sad</button>
+    <button type="button" class="btn" value="Stressed" data-toggle="modal" data-target="#moodModal">Stressed</button>
+</div>
+<div class="entrysection">
+    <div class="buttonheader">Apetite?</div>
+    <button type="button" class="btn" value="Full" data-toggle="modal" data-target="#appetiteModal">Full/Content</button>
+    <button type="button" class="btn" value="Hungry" data-toggle="modal" data-target="#appetiteModal">Hungry</button>
+    <button type="button" class="btn" value="Starving" data-toggle="modal" data-target="#appetiteModal">Starving</button>
+    <button type="button" class="btn" value="Thristy" data-toggle="modal" data-target="#appetiteModal">Thristy</button>
+</div>
+<div class="entrysection">
+    <div class="buttonheader">Sick?</div>
+    <button type="button" class="btn" value="Nauseous" data-toggle="modal" data-target="#sickModal">Nauseious</button>
+    <button type="button" class="btn" value="Gassy" data-toggle="modal" data-target="#sickModal">Gassy</button>
+    <button type="button" class="btn" value="Heartburn" data-toggle="modal" data-target="#sickModal">Heartburn</button>
+    <button type="button" class="btn" value="Headache" data-toggle="modal" data-target="#sickModal">Headache</button>
+    <button type="button" class="btn" value="Tired" data-toggle="modal" data-target="#sickModal">Tired</button>
+</div>
+<div class="entrysection">
+    <div class="buttonheader">Doing?</div>
+    <button type="button" class="btn" value="Eating/Drinking" name="eatingtype" data-toggle="modal" data-target="#eatingModal">Eating/Drinking</button>
+    <button type="button" class="btn" value="Exercising" name="Exercising" data-toggle="modal" data-target="#exercisingModal">Exercising</button>
+    <button type="button" class="btn" value="Pills" name="Pills" data-toggle="modal" data-target="#pillsModal">Pills/Medicine</button>
+    <button type="button" class="btn" value="Pooping" name="Pooping" data-toggle="modal" data-target="#poopingModal">Pooping</button>
+    <button type="button" class="btn" value="Socializing" name="Socializing" data-toggle="modal" data-target="#socializingModal">Socializing</button>
+    <button type="button" class="btn" value="Working" name="Working" data-toggle="modal" data-target="#workingModal">Working</button>
+    <button type="button" class="btn" value="Sleeping" name="Sleeping" data-toggle="modal" data-target="#sleepingModal">Sleep</button>
+
 </div>
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
+<div class="formsection">
+    <div class="buttonheader">My Stats</div>
+    <button type="button" class="btn" value="My Physical Attributes" data-toggle="modal" data-target="#statsModal">My Physical Attributes</button>
+    <button type="button" class="btn" value="profile" data-toggle="modal" data-target="#profileModal">My Profile</button>
+</div>
+
+<!-- Modal for Mood-->
+<div class="modal fade" id="moodModal" tabindex="-1" role="dialog" aria-labelledby="moodModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Feeling <span class="modal-title"></span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="location">
+                    <div class="buttonheader">Location?</div>
+                    <button type="button" class="btn" value="Home">Home</button>
+                    <button type="button" class="btn" value="Work">Work</button>
+                    <button type="button" class="btn" value="Vacation">Vacation</button>
+                    <button type="button" class="btn" value="Out Fun">Out Fun</button>
+                    <button type="button" class="btn" value="Out Errands">Out Errands</button>
+                    <button type="button" class="btn" value="Out Other">Out Other</button>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="EmotionalStates.Type" class="form-control type" />
+                    <input asp-for="EmotionalStates.Location" class="form-control loc" />
+
+                    <div class="form-group">
+                        <label asp-for="EmotionalStates.Notes" class="control-label"></label>
+                        <textarea asp-for="EmotionalStates.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="EmotionalStates.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="EmotionalStates.DateState" class="control-label">When</label>
+                        <input asp-for="EmotionalStates.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="EmotionalStates.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddMood" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
     </div>
 </div>
+
+<!-- End Modal for Mood-->
+<!-- Modal for Appetite-->
+<div class="modal fade" id="appetiteModal" tabindex="-1" role="dialog" aria-labelledby="appetiteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Feeling <span class="modal-title"></span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="location">
+                    <div class="buttonheader">Location?</div>
+                    <button type="button" class="btn" value="Home">Home</button>
+                    <button type="button" class="btn" value="Work">Work</button>
+                    <button type="button" class="btn" value="Vacation">Vacation</button>
+                    <button type="button" class="btn" value="Out Fun">Out Fun</button>
+                    <button type="button" class="btn" value="Out Errands">Out Errands</button>
+                    <button type="button" class="btn" value="Out Other">Out Other</button>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Appetite.Type" class="form-control type" />
+                    <input asp-for="Appetite.Location" class="form-control loc" />
+
+                    <div class="form-group">
+                        <label asp-for="Appetite.Notes" class="control-label"></label>
+                        <textarea asp-for="Appetite.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Appetite.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Appetite.DateState" class="control-label">When</label>
+                        <input asp-for="Appetite.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Appetite.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddAppetite" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Modal for Appetite-->
+<!-- Modal for Sick-->
+<div class="modal fade" id="sickModal" tabindex="-1" role="dialog" aria-labelledby="sickModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I Feel <span class="modal-title"></span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="location">
+                    <div class="buttonheader">Location?</div>
+                    <button type="button" class="btn" value="Home">Home</button>
+                    <button type="button" class="btn" value="Work">Work</button>
+                    <button type="button" class="btn" value="Vacation">Vacation</button>
+                    <button type="button" class="btn" value="Out Fun">Out Fun</button>
+                    <button type="button" class="btn" value="Out Errands">Out Errands</button>
+                    <button type="button" class="btn" value="Out Other">Out Other</button>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Sickness.Type" class="form-control type" />
+                    <input asp-for="Sickness.Location" class="form-control loc" />
+
+                    <div class="form-group">
+                        <label asp-for="Sickness.Notes" class="control-label"></label>
+                        <textarea asp-for="Sickness.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Sickness.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Sickness.DateState" class="control-label">When</label>
+                        <input asp-for="Sickness.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Sickness.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddSickness" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Modal for Sick-->
+<!-- Modal for Eating-->
+<div class="modal fade" id="eatingModal" tabindex="-1" role="dialog" aria-labelledby="eatingModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Eating/Drinking</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="food">
+                    <div class="buttonheader">Eating? Click button to add portions</div>
+                    <button type="button" class="btn" name="Beans" value="0">Beans:0</button>
+                    <button type="button" class="btn" name="Bread" value="0">Bread:0</button>
+                    <button type="button" class="btn" name="Butter" value="0">Butter:0</button>
+                    <button type="button" class="btn" name="Cheese" value="0">Cheese:0</button>
+                    <button type="button" class="btn" name="Eggs" value="0">Eggs:0</button>
+                    <button type="button" class="btn" name="Fish" value="0">Fish:0</button>
+                    <button type="button" class="btn" name="Fruit" value="0">Fruit:0</button>
+                    <button type="button" class="btn" name="Meat" value="0">Meat:0</button>
+                    <button type="button" class="btn" name="Nuts" value="0">Nuts:0</button>
+                    <button type="button" class="btn" name="Oils" value="0">Oils:0</button>
+                    <button type="button" class="btn" name="Pasta" value="0">Pasta:0</button>
+                    <button type="button" class="btn" name="Potatoes" value="0">Potatoes:0</button>
+                    <button type="button" class="btn" name="Rice" value="0">Rice:0</button>
+                    <button type="button" class="btn" name="Sweats" value="0">Sweats:0</button>
+                    <button type="button" class="btn" name="Vegetable" value="0">Vegetable:0</button>
+                    <button type="button" class="btn" name="Yogurt" value="0">Yogurt:0</button>
+                    <div class="buttonheader">Drinking? Click button to add portions</div>
+                    <button type="button" class="btn" name="Water" value="0">Water:0</button>
+                    <button type="button" class="btn" name="Soda" value="0">Soda:0</button>
+                    <button type="button" class="btn" name="DietSoda" value="0">DietSoda:0</button>
+                    <button type="button" class="btn" name="Juice" value="0">Juice:0</button>
+                    <button type="button" class="btn" name="Beer" value="0">Beer:0</button>
+                    <button type="button" class="btn" name="Wine" value="0">Wine:0</button>
+                    <button type="button" class="btn" name="Liquor" value="0">Liquor:0</button>
+                    <button type="button" class="btn" name="Coffee" value="0">Coffee:0</button>
+
+                </div>
+                <div class="location">
+                    <div class="buttonheader">Location?</div>
+                    <button type="button" class="btn" value="Home">Home</button>
+                    <button type="button" class="btn" value="Work">Work</button>
+                    <button type="button" class="btn" value="Vacation">Vacation</button>
+                    <button type="button" class="btn" value="Out Fun">Out Fun</button>
+                    <button type="button" class="btn" value="Out Errands">Out Errands</button>
+                    <button type="button" class="btn" value="Out Other">Out Other</button>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Consuming.Type" class="form-control type" />
+                    <input asp-for="Consuming.Location" class="form-control loc" />
+
+                    <input asp-for="Consuming.Beans" class="form-control" id="Beans" />
+                    <input asp-for="Consuming.Bread" class="form-control" id="Bread" />
+                    <input asp-for="Consuming.Butter" class="form-control" id="Butter" />
+                    <input asp-for="Consuming.Cheese" class="form-control" id="Cheese" />
+                    <input asp-for="Consuming.Eggs" class="form-control" id="Eggs" />
+                    <input asp-for="Consuming.Fish" class="form-control" id="Fish" />
+                    <input asp-for="Consuming.Fruit" class="form-control" id="Fruit" />
+                    <input asp-for="Consuming.Meat" class="form-control" id="Meat" />
+                    <input asp-for="Consuming.Nuts" class="form-control" id="Nuts" />
+                    <input asp-for="Consuming.Oils" class="form-control" id="Oils" />
+                    <input asp-for="Consuming.Pasta" class="form-control" id="Pasta" />
+                    <input asp-for="Consuming.Potatoes" class="form-control" id="Potatoes" />
+                    <input asp-for="Consuming.Rice" class="form-control" id="Rice" />
+                    <input asp-for="Consuming.Sweats" class="form-control" id="Sweats" />
+                    <input asp-for="Consuming.Vegetable" class="form-control" id="Vegetable" />
+                    <input asp-for="Consuming.Yogurt" class="form-control" id="Yogurt" />
+                    <input asp-for="Consuming.Water" class="form-control" id="Water" />
+                    <input asp-for="Consuming.Soda" class="form-control" id="Soda" />
+                    <input asp-for="Consuming.DietSoda" class="form-control" id="DietSoda" />
+                    <input asp-for="Consuming.Juice" class="form-control" id="Juice" />
+                    <input asp-for="Consuming.Beer" class="form-control" id="Beer" />
+                    <input asp-for="Consuming.Wine" class="form-control" id="Wine" />
+                    <input asp-for="Consuming.Liquor" class="form-control" id="Liquor" />
+                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee" />
+
+
+                    <div class="form-group">
+                        <label asp-for="Consuming.Notes" class="control-label"></label>
+                        <textarea asp-for="Consuming.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Consuming.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Sickness.DateState" class="control-label">When</label>
+                        <input asp-for="Sickness.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Sickness.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddConsumption" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Modal for Eating-->
+<!-- Modal for Exercise-->
+<div class="modal fade" id="exercisingModal" tabindex="-1" role="dialog" aria-labelledby="exercisingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm <span class="modal-title"></span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="entrysection">
+                    <div class="buttonheader">Type?</div>
+                    <button type="button" class="btn" value="Walking">Walking</button>
+                    <button type="button" class="btn" value="Running">Running</button>
+                    <button type="button" class="btn" value="Weights">Weights</button>
+                    <button type="button" class="btn" value="Sports">Sports</button>
+                    <button type="button" class="btn" value="Other">Other</button>
+                </div>
+                <div class="exerciseintensity">
+                    <div class="buttonheader">Intensity?</div>
+                    <button type="button" class="btn" value="Low">Low</button>
+                    <button type="button" class="btn" value="Medium">Medium</button>
+                    <button type="button" class="btn" value="High">High</button>
+                    <button type="button" class="btn" value="Max">Max</button>
+                </div>
+                <div class="exercisedurtion">
+                    <div class="buttonheader">Duration? In Minutes</div>
+                    <button type="button" class="btn" value="Walking">15 m</button>
+                    <button type="button" class="btn" value="Running">30 m</button>
+                    <button type="button" class="btn" value="Weights">45 m</button>
+                    <button type="button" class="btn" value="Sports">60 m</button>
+                    <label>Other:</label> <input type="text" class="form-control duration" style="width:60px;display:inline" value="">
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Exercise.Type" class="form-control type" />
+
+                    <div class="form-group">
+                        <label asp-for="Exercise.Notes" class="control-label"></label>
+                        <textarea asp-for="Exercise.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Exercise.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Exercise.DateState" class="control-label">When</label>
+                        <input asp-for="Exercise.DateState" type="datetime-local" name="datestate" class="form-control" />
+                        <span asp-validation-for="Exercise.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddExercise" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Modal for Exercise-->
+<!-- Modal for Pills-->
+<div class="modal fade" id="pillsModal" tabindex="-1" role="dialog" aria-labelledby="pillsModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Taking Medicine</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="entrysection">
+                    <div class="buttonheader">Pill?</div>
+                    <button type="button" class="btn" value="Acetamphine">Acetamphine</button>
+                    <button type="button" class="btn" value="Advil">Advil</button>
+                    <button type="button" class="btn" value="Clariton">Clariton</button>
+                    <button type="button" class="btn" value="Pepcide">Pepcid</button>
+                    <button type="button" class="btn" value="Tylenol">Tylenol</button>
+                    <button type="button" class="btn" value="Tums">Tums</button>
+                    <button type="button" class="btn" value="Zyrtec">Zyrtec</button>
+                </div>
+                <div class="pillsdose">
+                    <div class="buttonheader">Dose</div>
+                    <input asp-for="Pills.Dose" class="form-control" />
+
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Pills.Type" class="form-control type" />
+
+                    <div class="form-group">
+                        <label asp-for="Pills.Notes" class="control-label"></label>
+                        <textarea asp-for="Pills.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Pills.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Pills.DateState" class="control-label">When</label>
+                        <input asp-for="Pills.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Pills.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddPills" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- End Modal for Pills-->
+<!-- Modal for Poop-->
+<div class="modal fade" id="poopingModal" tabindex="-1" role="dialog" aria-labelledby="poopingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I Pooping</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="entrysection">
+                    <div class="buttonheader">Type?</div>
+                    <button type="button" class="btn" value="Normal">Normal</button>
+                    <button type="button" class="btn" value="Loose">Loose</button>
+                    <button type="button" class="btn" value="Diarrhea">Diarrhea</button>
+                    <button type="button" class="btn" value="Hard/Difficult">Hard/Difficult</button>
+                </div>
+                <div class="poopcolor">
+                    <div class="buttonheader">Color</div>
+                    <button type="button" class="btn" value="Brown">Brown</button>
+                    <button type="button" class="btn" value="Green">Green</button>
+                    <button type="button" class="btn" value="Yellow">Black</button>
+                    <button type="button" class="btn" value="Black">Black</button>
+                    <button type="button" class="btn" value="Light">Light Colored White Clay</button>
+                    <button type="button" class="btn" value="Red">Red or Red Streaks</button>
+                </div>
+                <div class="poopdensity">
+                    <div class="buttonheader">Density</div>
+                    <button type="button" class="btn" value="Normal">Normal</button>
+                    <button type="button" class="btn" value="Floats">Floats</button>
+                </div>
+
+                <form method="post">
+                    <input asp-for="Poop.Color" class="form-control pcolor" />
+                    <input asp-for="Poop.Density" class="form-control pdensity" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Poop.Type" class="form-control type" />
+
+                    <div class="form-group">
+                        <label asp-for="Poop.Notes" class="control-label"></label>
+                        <textarea asp-for="Poop.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Poop.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Pills.DateState" class="control-label">When</label>
+                        <input asp-for="Pills.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Pills.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddPoop" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Poop-->
+<!-- Modal for Social-->
+<div class="modal fade" id="socializingModal" tabindex="-1" role="dialog" aria-labelledby="socializingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Socializing</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="entrysection">
+                    <div class="buttonheader">What?</div>
+                    <button type="button" class="btn" value="Birthday Party">Birthday Party</button>
+                    <button type="button" class="btn" value="Concert">Concert</button>
+                    <button type="button" class="btn" value="Dancing">Dancing</button>
+                    <button type="button" class="btn" value="Dinner">Dinner</button>
+                    <button type="button" class="btn" value="Drinks">Drinks</button>
+                    <button type="button" class="btn" value="Movie">Movie</button>
+                    <button type="button" class="btn" value="Museam">Museam</button>
+                    <button type="button" class="btn" value="Park">Park</button>
+                    <button type="button" class="btn" value="Party">Party</button>
+                    <button type="button" class="btn" value="Sporting Event">Sporting Event</button>
+                    <button type="button" class="btn" value="Theater">Theater</button>
+                    <button type="button" class="btn" value="Wedding">Wedding</button>
+                    <button type="button" class="btn" value="Zoo">Zoo</button>
+
+                </div>
+                <div class="socialwith">
+                    <div class="buttonheader">With</div>
+                    <button type="button" class="btn" value="Alone">Alone</button>
+                    <button type="button" class="btn" value="Date">Date</button>
+                    <button type="button" class="btn" value="Friend(s)">Friend(s)</button>
+                    <button type="button" class="btn" value="Spouse">Spouse</button>
+                    <button type="button" class="btn" value="Family">Family</button>
+                    <button type="button" class="btn" value="Coworkers">Coworkers</button>
+                    <button type="button" class="btn" value="Extended Family">Extended Family</button>
+
+                </div>
+                <div class="socialwhere">
+                    <div class="buttonheader">Where</div>
+                    <button type="button" class="btn" value="Bar">Bar</button>
+                    <button type="button" class="btn" value="Club">Club</button>
+                    <button type="button" class="btn" value="House">House</button>
+                    <button type="button" class="btn" value="Movie">Movie</button>
+                    <button type="button" class="btn" value="Restaurant">Restaurant</button>
+                    <button type="button" class="btn" value="Stadium">Stadium</button>
+                    <button type="button" class="btn" value="Theater">Theater</button>
+                    <button type="button" class="btn" value="Work">Work</button>
+                </div>
+
+                <form method="post">
+                    <input asp-for="Social.Where" class="form-control swhere" />
+                    <input asp-for="Social.With" class="form-control swith" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Social.Type" class="form-control type" />
+
+                    <div class="form-group">
+                        <label asp-for="Social.Notes" class="control-label"></label>
+                        <textarea asp-for="Social.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Social.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Social.DateState" class="control-label">When</label>
+                        <input asp-for="Social.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Social.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddSocial" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Social-->
+<!-- Modal for Working-->
+<div class="modal fade" id="workingModal" tabindex="-1" role="dialog" aria-labelledby="workingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">I'm Working</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="buttonheader">What are you working on?</div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Working.Type" class="form-control type" />
+                    <label asp-for="Working.Duration" class="control-label"></label>
+                    <input asp-for="Working.Duration" class="form-control swhere" />
+                    <div class="form-group">
+                        <label asp-for="Working.Notes" class="control-label"></label>
+                        <textarea asp-for="Working.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Working.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Working.DateState" class="control-label">When</label>
+                        <input asp-for="Working.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Working.DateState" class="text-danger"></span>
+                    </div>
+                    <input type="submit" asp-page-handler="AddSocial" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Work-->
+<!-- Modal for Stats-->
+<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">My Physical Attributes/Stats <span class="modal-title"></span></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="formsection">
+                        <div class="buttonheader">Height and Weight</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input asp-for="Stats.Weight" type="number" class="form-control" placeholder="Weight" />
+                            </div>
+                            <div class="col-md-4">
+                                <input asp-for="Stats.Height" type="number" class="form-control" placeholder="Height" />
+                            </div>
+                            <div class="col-md-4">
+                                <input asp-for="Stats.BodyFat" type="number" class="form-control" placeholder="Body Fat" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formsection">
+                        <div class="buttonheader">Blood Pressure</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input asp-for="Stats.Systolic" type="number" class="form-control" placeholder="Systolic" />
+                            </div>
+                            <div class="col-md-4">
+                                <input asp-for="Stats.Diastolic" type="number" class="form-control" placeholder="Diastolic" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="formsection">
+                        <div class="buttonheader">Cholesterol</div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input asp-for="Stats.LDL" type="number" class="form-control" placeholder="LDL" />
+                            </div>
+                            <div class="col-md-4">
+                                <input asp-for="Stats.HDL" type="number" class="form-control" placeholder="HDL" />
+                            </div>
+                            <div class="col-md-4">
+                                <input asp-for="Stats.VLDL" type="number" class="form-control" placeholder="VLDL" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formsection">
+                        <div class="buttonheader">Measurements</div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input asp-for="Stats.Waist" type="number" class="form-control" placeholder="Waist" />
+                            </div>
+                            <div class="col-md-3">
+                                <input asp-for="Stats.Chest" type="number" class="form-control" placeholder="Chest" />
+                            </div>
+                            <div class="col-md-3">
+                                <input asp-for="Stats.Arms" type="number" class="form-control" placeholder="Arms" />
+                            </div>
+                            <div class="col-md-3">
+                                <input asp-for="Stats.Legs" type="number" class="form-control" placeholder="Legs" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Stats.DateState" class="control-label">When</label>
+                        <input asp-for="Stats.DateState" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Stats.DateState" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Social.Notes" class="control-label"></label>
+                        <textarea asp-for="Social.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Social.Notes" class="text-danger"></span>
+                    </div>
+
+
+                    <input type="submit" asp-page-handler="AddStats" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Stats-->
