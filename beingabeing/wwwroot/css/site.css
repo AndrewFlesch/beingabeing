@@ -33,3 +33,125 @@
         display: none;
     }
 }
+
+/*Header Styles*/
+
+#lead1 {
+    display: none;
+}
+
+#changeText {
+    color: red;
+}
+
+#findout {
+    display: none;
+}
+
+.btn {
+    background: none;
+}
+
+
+.buttonheader {
+    font-size: 18px;
+    display: inline;
+    font-weight: bold;
+}
+
+.entrysection {
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    max-width: 600px;
+}
+
+.btn {
+    border: 1px solid gray;
+    box-shadow: lightgray 1px 1px;
+    margin: 1px;
+}
+
+.modal-title-h1 {
+    display: inline;
+}
+
+.buttonheader {
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.button:hover {
+    background-color: lightblue;
+}
+
+.sick button {
+    border: 1px solid gray;
+    box-shadow: lightgray 2px 2px;
+    margin: 2px;
+}
+
+    .sick button:hover {
+        background-color: lightgray;
+    }
+
+.temperature button {
+    box-shadow: lightgray 2px 2px;
+    margin: 5px;
+}
+
+.temperature .feelselect {
+    box-shadow: gray 0px 0px !important;
+    border: 2px solid black !important;
+}
+
+.temperature button:hover {
+    box-shadow: gray 0px 0px !important;
+    border: 2px solid black !important;
+}
+
+.freezing {
+    background-color: aqua;
+}
+
+.cold {
+    background-color: blue;
+    color: white;
+}
+
+    .cold:focus, .cold:hover {
+        background-color: blue;
+        color: white;
+        box-shadow: 0px 0px;
+    }
+
+.pleasent {
+    background-color: yellow;
+}
+
+.warm {
+    background-color: orange;
+}
+
+.hot {
+    background-color: red;
+    color: white;
+}
+
+.duration {
+    width: 20px;
+}
+
+.stats {
+    width: 50px;
+    float: left;
+}
+
+.formsection {
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    max-width: 600px;
+}

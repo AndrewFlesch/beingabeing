@@ -11,9 +11,10 @@ using System;
 namespace beingabeing.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180709160118_DBNameChange")]
+    partial class DBNameChange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,6 +130,8 @@ namespace beingabeing.Data.Migrations
                     b.Property<string>("Location");
 
                     b.Property<int>("Meat");
+
+                    b.Property<int>("MyProperty");
 
                     b.Property<string>("Notes");
 

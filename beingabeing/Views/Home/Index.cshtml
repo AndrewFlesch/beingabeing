@@ -67,7 +67,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form method="post">
+                <form asp-action="CreateMood" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="EmotionalStates.Type" class="form-control type" />
                     <input asp-for="EmotionalStates.Location" class="form-control loc" />
@@ -83,7 +83,7 @@
                         <input asp-for="EmotionalStates.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="EmotionalStates.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" value="CreateAppetite" class="btn btn-default" />
+                    <input type="submit" formaction="addmood" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -163,7 +163,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form method="post">
+                <form asp-action="CreateSick" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Sickness.Type" class="form-control type" />
                     <input asp-for="Sickness.Location" class="form-control loc" />
@@ -179,7 +179,7 @@
                         <input asp-for="Sickness.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Sickness.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddSickness" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addsick" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -240,35 +240,35 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form method="post">
+                <form asp-action="CreateConsuming" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Consuming.Type" class="form-control type" />
                     <input asp-for="Consuming.Location" class="form-control loc" />
 
-                    <input asp-for="Consuming.Beans" class="form-control" id="Beans" />
-                    <input asp-for="Consuming.Bread" class="form-control" id="Bread" />
-                    <input asp-for="Consuming.Butter" class="form-control" id="Butter" />
-                    <input asp-for="Consuming.Cheese" class="form-control" id="Cheese" />
-                    <input asp-for="Consuming.Eggs" class="form-control" id="Eggs" />
-                    <input asp-for="Consuming.Fish" class="form-control" id="Fish" />
-                    <input asp-for="Consuming.Fruit" class="form-control" id="Fruit" />
-                    <input asp-for="Consuming.Meat" class="form-control" id="Meat" />
-                    <input asp-for="Consuming.Nuts" class="form-control" id="Nuts" />
-                    <input asp-for="Consuming.Oils" class="form-control" id="Oils" />
-                    <input asp-for="Consuming.Pasta" class="form-control" id="Pasta" />
-                    <input asp-for="Consuming.Potatoes" class="form-control" id="Potatoes" />
-                    <input asp-for="Consuming.Rice" class="form-control" id="Rice" />
-                    <input asp-for="Consuming.Sweats" class="form-control" id="Sweats" />
-                    <input asp-for="Consuming.Vegetable" class="form-control" id="Vegetable" />
-                    <input asp-for="Consuming.Yogurt" class="form-control" id="Yogurt" />
-                    <input asp-for="Consuming.Water" class="form-control" id="Water" />
-                    <input asp-for="Consuming.Soda" class="form-control" id="Soda" />
-                    <input asp-for="Consuming.DietSoda" class="form-control" id="DietSoda" />
-                    <input asp-for="Consuming.Juice" class="form-control" id="Juice" />
-                    <input asp-for="Consuming.Beer" class="form-control" id="Beer" />
-                    <input asp-for="Consuming.Wine" class="form-control" id="Wine" />
-                    <input asp-for="Consuming.Liquor" class="form-control" id="Liquor" />
-                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee" />
+                    <input asp-for="Consuming.Beans" class="form-control" id="Beans" value="0" />
+                    <input asp-for="Consuming.Bread" class="form-control" id="Bread" value="0" />
+                    <input asp-for="Consuming.Butter" class="form-control" id="Butter" value="0" />
+                    <input asp-for="Consuming.Cheese" class="form-control" id="Cheese" value="0" />
+                    <input asp-for="Consuming.Eggs" class="form-control" id="Eggs" value="0" />
+                    <input asp-for="Consuming.Fish" class="form-control" id="Fish" value="0" />
+                    <input asp-for="Consuming.Fruit" class="form-control" id="Fruit" value="0" />
+                    <input asp-for="Consuming.Meat" class="form-control" id="Meat" value="0" />
+                    <input asp-for="Consuming.Nuts" class="form-control" id="Nuts" value="0" />
+                    <input asp-for="Consuming.Oils" class="form-control" id="Oils" value="0" />
+                    <input asp-for="Consuming.Pasta" class="form-control" id="Pasta" value="0" />
+                    <input asp-for="Consuming.Potatoes" class="form-control" id="Potatoes" value="0" />
+                    <input asp-for="Consuming.Rice" class="form-control" id="Rice" value="0" />
+                    <input asp-for="Consuming.Sweats" class="form-control" id="Sweats" value="0" />
+                    <input asp-for="Consuming.Vegetable" class="form-control" id="Vegetable" value="0" />
+                    <input asp-for="Consuming.Yogurt" class="form-control" id="Yogurt" value="0" />
+                    <input asp-for="Consuming.Water" class="form-control" id="Water" value="0" />
+                    <input asp-for="Consuming.Soda" class="form-control" id="Soda" value="0" />
+                    <input asp-for="Consuming.DietSoda" class="form-control" id="DietSoda" value="0" />
+                    <input asp-for="Consuming.Juice" class="form-control" id="Juice" value="0" />
+                    <input asp-for="Consuming.Beer" class="form-control" id="Beer" value="0" />
+                    <input asp-for="Consuming.Wine" class="form-control" id="Wine"  value="0"/>
+                    <input asp-for="Consuming.Liquor" class="form-control" id="Liquor" value="0" />
+                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee"  value="0"/>
 
 
                     <div class="form-group">
@@ -282,7 +282,7 @@
                         <input asp-for="Sickness.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Sickness.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddConsumption" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addconsuming" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -328,7 +328,7 @@
                     <button type="button" class="btn" value="Sports">60 m</button>
                     <label>Other:</label> <input type="text" class="form-control duration" style="width:60px;display:inline" value="">
                 </div>
-                <form method="post">
+                <form asp-action="CreateExercise" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Exercise.Type" class="form-control type" />
 
@@ -343,7 +343,7 @@
                         <input asp-for="Exercise.DateState" type="datetime-local" name="datestate" class="form-control" />
                         <span asp-validation-for="Exercise.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddExercise" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addexercise" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 

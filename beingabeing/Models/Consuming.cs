@@ -11,7 +11,6 @@ namespace beingabeing.Models
         public int ID { get; set; }
         public string Cat { get; set; } = "Eating/Drinking";
         public string Type { get; set; }
-        public int MyProperty { get; set; }
         public int Vegetable { get; set; }
         public int Meat { get; set; }
         public int Fish { get; set; }

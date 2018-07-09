@@ -43,21 +43,7 @@ namespace beingabeing.Controllers
             _context = context;
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Route("/addappetite")]
-        public async Task<IActionResult> CreateAppetite([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Appetite appetite)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(appetite);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View();
-        }
-
-
+        //Return login if not logged in
         public async Task<IActionResult> Index(string returnUrl = null)
         {
             if (_signInManager.IsSignedIn(User))
@@ -76,6 +62,78 @@ namespace beingabeing.Controllers
 
         }
 
+        //Add appetite
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addappetite")]
+        public async Task<IActionResult> CreateAppetite([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Appetite appetite)
+        {
+            appetite.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(appetite);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        //Add mood
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addmood")]
+        public async Task<IActionResult> CreateMood([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] EmotionalStates emotionalstates)
+        {
+
+            emotionalstates.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(emotionalstates);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        //Add sick
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addsick")]
+        public async Task<IActionResult> CreateSick([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Sickness sickness)
+        {
+
+            sickness.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(sickness);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        //Add consuming
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addconsuming")]
+        public async Task<IActionResult> CreateConsuming([Bind("OwnerID,ID,Cat,Type,Vegetable,Meat,Fish,Eggs,Cheese,Yogurt,Fruit,Bread,Rice,Potatoes,Pasta,Beans,Nuts,Oils,Butter,Sweats,Water,Soda,DietSoda,Juice,Beer,Wine,Liquor,Coffee,DateState,Location,Notes")] Consuming consuming)
+        {
+
+            consuming.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(consuming);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Login post action.
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -112,6 +170,7 @@ namespace beingabeing.Controllers
             return View("../Account/Login");
         }
 
+        //Go to account views if doing anything other than log in. 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> LoginWith2fa(bool rememberMe, string returnUrl = null)
@@ -462,6 +521,7 @@ namespace beingabeing.Controllers
             return View();
         }
 
+        
         #region Helpers
 
         private void AddErrors(IdentityResult result)
@@ -485,8 +545,10 @@ namespace beingabeing.Controllers
         }
 
         #endregion
-   
-    public IActionResult About()
+
+       
+
+        public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
