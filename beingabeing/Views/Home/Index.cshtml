@@ -83,7 +83,7 @@
                         <input asp-for="EmotionalStates.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="EmotionalStates.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddMood" value="Submit" class="btn btn-default" />
+                    <input type="submit" value="CreateAppetite" class="btn btn-default" />
 
                 </form>
 
@@ -115,7 +115,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form method="post">
+                <form asp-action="CreateAppetite" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Appetite.Type" class="form-control type" />
                     <input asp-for="Appetite.Location" class="form-control loc" />
@@ -131,7 +131,7 @@
                         <input asp-for="Appetite.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Appetite.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddAppetite" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addappetite" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 

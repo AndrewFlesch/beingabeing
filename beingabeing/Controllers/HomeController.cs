@@ -43,21 +43,21 @@ namespace beingabeing.Controllers
             _context = context;
         }
 
-        [BindProperty]
-        public Appetite Appetite { get; set; }
-        public Consuming Consuming { get; set; }
-        public EmotionalStates EmotionalStates { get; set; }
-        public Exercise Exercise { get; set; }
-        public Pills Pills { get; set; }
-        public Poop Poop { get; set; }
-        public Sickness Sickness { get; set; }
-        public Sleep Sleep { get; set; }
-        public Stats Stats { get; set; }
-        public Social Social { get; set; }
-        public Weather Weather { get; set; }
-        public Working Working { get; set; }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addappetite")]
+        public async Task<IActionResult> CreateAppetite([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Appetite appetite)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(appetite);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
 
-        
+
         public async Task<IActionResult> Index(string returnUrl = null)
         {
             if (_signInManager.IsSignedIn(User))
@@ -75,23 +75,6 @@ namespace beingabeing.Controllers
             }
 
         }
-
-
-        public async Task<IActionResult> AddAppetite()
-        {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
-            Appetite.OwnerID = _userManager.GetUserId(User);
-
-            _context.Appetite.Add(Appetite);
-            await _context.SaveChangesAsync();
-
-            return View();
-        }
-
 
         [HttpPost]
         [AllowAnonymous]
