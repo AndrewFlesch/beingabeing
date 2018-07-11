@@ -97,6 +97,25 @@ $(".poopcolor .btn").click(function () {
 
 });
 
+$(".poopdensity .btn").click(function () {
+    $(".pdensity").val($(this).val());
+
+});
+
+$(".exerciseintensity .btn").click(function () {
+    $(".intensity").val($(this).val());
+
+});
+
+$(".exerciseduration .btn").click(function () {
+    let duration = $(".dur").val();
+    let durationtotal = +duration + 15;
+    $(".dur").val(0);
+    $(".dur").val(durationtotal);
+
+});
+
+
 $(".socialwhere .btn").click(function () {
     $(".swhere").val($(this).val());
 
@@ -106,7 +125,6 @@ $(".socialwith .btn").click(function () {
     $(".swith").val($(this).val());
 
 });
-
 
 
 $(".locationbuttons .btn").click(function () {

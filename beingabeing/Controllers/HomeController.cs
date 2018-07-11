@@ -115,18 +115,126 @@ namespace beingabeing.Controllers
             return View();
         }
 
-        //Add consuming
+        //Add exercise
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("/addconsuming")]
-        public async Task<IActionResult> CreateConsuming([Bind("OwnerID,ID,Cat,Type,Vegetable,Meat,Fish,Eggs,Cheese,Yogurt,Fruit,Bread,Rice,Potatoes,Pasta,Beans,Nuts,Oils,Butter,Sweats,Water,Soda,DietSoda,Juice,Beer,Wine,Liquor,Coffee,DateState,Location,Notes")] Consuming consuming)
+        [Route("/addexercise")]
+        public async Task<IActionResult> CreateExercise([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location,Duration,Intensity")] Exercise exercise)
         {
 
-            consuming.OwnerID = _userManager.GetUserId(User);
+            exercise.OwnerID = _userManager.GetUserId(User);
 
             if (ModelState.IsValid)
             {
-                _context.Add(consuming);
+                _context.Add(exercise);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add pills
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addpills")]
+        public async Task<IActionResult> CreatePills([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location,Dose")] Pills pills)
+        {
+
+            pills.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(pills);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add poop
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addpoop")]
+        public async Task<IActionResult> CreatePoop([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location,Color,Density")] Poop poop)
+        {
+
+            poop.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(poop);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add social
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addsocial")]
+        public async Task<IActionResult> CreateSocial([Bind("OwnerID,ID,Cat,Type,Notes,DateState,With,Where")] Social social)
+        {
+
+            social.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(social);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add working
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addworking")]
+        public async Task<IActionResult> CreateWorking([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Duration")] Working working)
+        {
+
+            working.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(working);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add sleep
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addsleep")]
+        public async Task<IActionResult> CreateSleep([Bind("OwnerID,ID,Cat,Type,Notes,WentDown,WokeUp")] Sleep sleep)
+        {
+
+            sleep.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(sleep);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return BadRequest(ModelState);
+        }
+
+        //Add stats
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("/addstats")]
+        public async Task<IActionResult> CreateStats([Bind("OwnerID,ID,DateState,Cat,Type,Notes,Height,Weight,BodyFat,Systolic,Diastolic,LDL,HDL,VLDL,Waist,Chest,Arms,Legs")] Stats stats)
+        {
+
+            stats.OwnerID = _userManager.GetUserId(User);
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(stats);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

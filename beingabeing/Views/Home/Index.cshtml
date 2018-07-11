@@ -1,8 +1,8 @@
-﻿@model  beingabeing.Models.ViewModels.HomeViewModel
+﻿@model beingabeing.Models.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<h1>How's It Going?</h1>
 <div class="entrysection">
     <div class="buttonheader">Mood?</div>
     <button type="button" class="btn" value="Anxious" data-toggle="modal" data-target="#moodModal">Anxious</button>
@@ -41,7 +41,7 @@
 
 </div>
 
-<div class="formsection">
+<div class="entrysection">
     <div class="buttonheader">My Stats</div>
     <button type="button" class="btn" value="My Physical Attributes" data-toggle="modal" data-target="#statsModal">My Physical Attributes</button>
     <button type="button" class="btn" value="profile" data-toggle="modal" data-target="#profileModal">My Profile</button>
@@ -67,7 +67,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form asp-action="CreateMood" method="post">
+                <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="EmotionalStates.Type" class="form-control type" />
                     <input asp-for="EmotionalStates.Location" class="form-control loc" />
@@ -115,7 +115,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form asp-action="CreateAppetite" method="post">
+                <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Appetite.Type" class="form-control type" />
                     <input asp-for="Appetite.Location" class="form-control loc" />
@@ -163,7 +163,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form asp-action="CreateSick" method="post">
+                <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Sickness.Type" class="form-control type" />
                     <input asp-for="Sickness.Location" class="form-control loc" />
@@ -240,7 +240,7 @@
                     <button type="button" class="btn" value="Out Errands">Out Errands</button>
                     <button type="button" class="btn" value="Out Other">Out Other</button>
                 </div>
-                <form asp-action="CreateConsuming" method="post">
+                <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Consuming.Type" class="form-control type" />
                     <input asp-for="Consuming.Location" class="form-control loc" />
@@ -266,9 +266,9 @@
                     <input asp-for="Consuming.DietSoda" class="form-control" id="DietSoda" value="0" />
                     <input asp-for="Consuming.Juice" class="form-control" id="Juice" value="0" />
                     <input asp-for="Consuming.Beer" class="form-control" id="Beer" value="0" />
-                    <input asp-for="Consuming.Wine" class="form-control" id="Wine"  value="0"/>
+                    <input asp-for="Consuming.Wine" class="form-control" id="Wine" value="0" />
                     <input asp-for="Consuming.Liquor" class="form-control" id="Liquor" value="0" />
-                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee"  value="0"/>
+                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee" value="0" />
 
 
                     <div class="form-group">
@@ -320,18 +320,17 @@
                     <button type="button" class="btn" value="High">High</button>
                     <button type="button" class="btn" value="Max">Max</button>
                 </div>
-                <div class="exercisedurtion">
-                    <div class="buttonheader">Duration? In Minutes</div>
-                    <button type="button" class="btn" value="Walking">15 m</button>
-                    <button type="button" class="btn" value="Running">30 m</button>
-                    <button type="button" class="btn" value="Weights">45 m</button>
-                    <button type="button" class="btn" value="Sports">60 m</button>
-                    <label>Other:</label> <input type="text" class="form-control duration" style="width:60px;display:inline" value="">
-                </div>
-                <form asp-action="CreateExercise" method="post">
+                <form method="post">
+                    <div class="exerciseduration">
+                        <div class="buttonheader">Duration? In Minutes</div>
+                        <input asp-for="Exercise.Duration" class="dur" value="0" />
+                        <button type="button" class="btn" value="15">Add 15 minutes</button>
+                    </div>
+
+
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Exercise.Type" class="form-control type" />
-
+                    <input asp-for="Exercise.Intensity" class="form-control intensity" />
                     <div class="form-group">
                         <label asp-for="Exercise.Notes" class="control-label"></label>
                         <textarea asp-for="Exercise.Notes" class="form-control"></textarea>
@@ -340,7 +339,7 @@
 
                     <div class="form-group">
                         <label asp-for="Exercise.DateState" class="control-label">When</label>
-                        <input asp-for="Exercise.DateState" type="datetime-local" name="datestate" class="form-control" />
+                        <input asp-for="Exercise.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Exercise.DateState" class="text-danger"></span>
                     </div>
                     <input type="submit" formaction="addexercise" formmethod="post" value="Submit" class="btn btn-default" />
@@ -376,13 +375,14 @@
                     <button type="button" class="btn" value="Tums">Tums</button>
                     <button type="button" class="btn" value="Zyrtec">Zyrtec</button>
                 </div>
-                <div class="pillsdose">
-                    <div class="buttonheader">Dose</div>
-                    <input asp-for="Pills.Dose" class="form-control" />
-
-                </div>
                 <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="pillsdose">
+                        <div class="buttonheader">Dose</div>
+                        <input asp-for="Pills.Dose" class="form-control" />
+
+                    </div>
+
                     <input asp-for="Pills.Type" class="form-control type" />
 
                     <div class="form-group">
@@ -396,7 +396,7 @@
                         <input asp-for="Pills.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Pills.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddPills" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addpills" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -442,9 +442,9 @@
                 </div>
 
                 <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Poop.Color" class="form-control pcolor" />
                     <input asp-for="Poop.Density" class="form-control pdensity" />
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Poop.Type" class="form-control type" />
 
                     <div class="form-group">
@@ -458,7 +458,7 @@
                         <input asp-for="Pills.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Pills.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddPoop" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addpoop" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -537,7 +537,7 @@
                         <input asp-for="Social.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Social.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddSocial" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addsocial" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -563,8 +563,8 @@
                 <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input asp-for="Working.Type" class="form-control type" />
-                    <label asp-for="Working.Duration" class="control-label"></label>
-                    <input asp-for="Working.Duration" class="form-control swhere" />
+                    <label asp-for="Working.Duration" class="control-label">Duration in Minutes</label>
+                    <input asp-for="Working.Duration" class="form-control swhere" value="0" />
                     <div class="form-group">
                         <label asp-for="Working.Notes" class="control-label"></label>
                         <textarea asp-for="Working.Notes" class="form-control"></textarea>
@@ -576,7 +576,7 @@
                         <input asp-for="Working.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Working.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" asp-page-handler="AddSocial" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addworking" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -587,12 +587,64 @@
     </div>
 </div>
 <!-- End Modal for Work-->
+<!-- Modal for Sleep-->
+<div class="modal fade" id="sleepingModal" tabindex="-1" role="dialog" aria-labelledby="sleepingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1">My Sleep</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="buttonheader">How did you Sleep?</div>
+                <div class="entrysection">
+                    <div class="buttonheader">Type?</div>
+                    <button type="button" class="btn" value="Normal">Normal</button>
+                    <button type="button" class="btn" value="Well">Well</button>
+                    <button type="button" class="btn" value="Restless">Restless</button>
+                    <button type="button" class="btn" value="Interupted">Interupted</button>
+                    <button type="button" class="btn" value="Uncomfortable">Uncomfortable</button>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="Sleep.Type" class="form-control type" />
+
+                    <div class="form-group">
+                        <label asp-for="Sleep.Notes" class="control-label"></label>
+                        <textarea asp-for="Sleep.Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Sleep.Notes" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Sleep.WentDown" class="control-label">When did you go to sleep?</label>
+                        <input asp-for="Sleep.WentDown" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Sleep.WentDown" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sleep.WokeUp" class="control-label">When did you wake up?</label>
+                        <input asp-for="Sleep.WokeUp" type="datetime-local" class="form-control datestate" />
+                        <span asp-validation-for="Sleep.WokeUp" class="text-danger"></span>
+                    </div>
+                    <input type="submit" formaction="addsleep" formmethod="post" value="Submit" class="btn btn-default" />
+
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Work-->
+
 <!-- Modal for Stats-->
 <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title-h1">My Physical Attributes/Stats <span class="modal-title"></span></h1>
+                <h1 class="modal-title-h1">My Physical Attributes/Stats</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -605,13 +657,13 @@
                         <div class="buttonheader">Height and Weight</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.Weight" type="number" class="form-control" placeholder="Weight" />
+                                <input asp-for="Stats.Weight" type="number" class="form-control" placeholder="Weight"  />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.Height" type="number" class="form-control" placeholder="Height" />
+                                <input asp-for="Stats.Height" type="number" class="form-control" placeholder="Height"  />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.BodyFat" type="number" class="form-control" placeholder="Body Fat" />
+                                <input asp-for="Stats.BodyFat" type="number" class="form-control" placeholder="Body Fat"/>
                             </div>
                         </div>
                     </div>
@@ -620,10 +672,10 @@
                         <div class="buttonheader">Blood Pressure</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.Systolic" type="number" class="form-control" placeholder="Systolic" />
+                                <input asp-for="Stats.Systolic" type="number" class="form-control" placeholder="Systolic"  />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.Diastolic" type="number" class="form-control" placeholder="Diastolic" />
+                                <input asp-for="Stats.Diastolic" type="number" class="form-control" placeholder="Diastolic"  />
                             </div>
 
                         </div>
@@ -633,22 +685,22 @@
                         <div class="buttonheader">Cholesterol</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.LDL" type="number" class="form-control" placeholder="LDL" />
+                                <input asp-for="Stats.LDL" type="number" class="form-control" placeholder="LDL"  />
                             </div>
                             <div class="col-md-4">
                                 <input asp-for="Stats.HDL" type="number" class="form-control" placeholder="HDL" />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.VLDL" type="number" class="form-control" placeholder="VLDL" />
+                                <input asp-for="Stats.VLDL" type="number" class="form-control" placeholder="VLDL"  />
                             </div>
                         </div>
                     </div>
 
                     <div class="formsection">
-                        <div class="buttonheader">Measurements</div>
+                        <div class="buttonheader">Measurements (inches)</div>
                         <div class="row">
                             <div class="col-md-3">
-                                <input asp-for="Stats.Waist" type="number" class="form-control" placeholder="Waist" />
+                                <input asp-for="Stats.Waist" type="number" class="form-control" placeholder="Waist"/>
                             </div>
                             <div class="col-md-3">
                                 <input asp-for="Stats.Chest" type="number" class="form-control" placeholder="Chest" />
@@ -675,7 +727,7 @@
                     </div>
 
 
-                    <input type="submit" asp-page-handler="AddStats" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="addstats" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
