@@ -81,8 +81,10 @@ $(".entrysection .btn").click(function () {
     let inputtype = "#" + this.name;
     $(inputtype).val($(this).val());
     let header = $(this).val();
-    $(".modal-title").text(header);
+    $(".modal-title-h1").text(header);
     $(".type").val($(this).val());
+    let cat = $(this).attr("cat");
+    $(".cat").val(cat);
     $(".datestate").val(moment().format('YYYY-MM-DDTHH:mm:ss'));
 
 });

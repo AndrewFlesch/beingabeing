@@ -5,14 +5,14 @@
 <h1>How's It Going?</h1>
 <div class="entrysection">
     <div class="buttonheader">Mood?</div>
-    <button type="button" class="btn" value="Anxious" data-toggle="modal" data-target="#moodModal">Anxious</button>
-    <button type="button" class="btn" value="Fine" data-toggle="modal" data-target="#moodModal">Fine</button>
-    <button type="button" class="btn" value="Fulfilled" data-toggle="modal" data-target="#moodModal">Fulfilled</button>
-    <button type="button" class="btn" value="Happy" data-toggle="modal" data-target="#moodModal">Happy</button>
-    <button type="button" class="btn" value="Lazy" data-toggle="modal" data-target="#moodModal">Lazy</button>
-    <button type="button" class="btn" value="Productive" data-toggle="modal" data-target="#moodModal">Productive</button>
-    <button type="button" class="btn" value="Sad" data-toggle="modal" data-target="#moodModal">Sad</button>
-    <button type="button" class="btn" value="Stressed" data-toggle="modal" data-target="#moodModal">Stressed</button>
+    <button type="button" class="btn" value="Anxious" data-toggle="modal" data-target="#itemModal">Anxious</button>
+    <button type="button" class="btn" value="Fine" data-toggle="modal" data-target="#itemModal">Fine</button>
+    <button type="button" class="btn" value="Fulfilled" data-toggle="modal" data-target="#itemModal">Fulfilled</button>
+    <button type="button" class="btn" value="Happy" data-toggle="modal" data-target="#itemModal">Happy</button>
+    <button type="button" class="btn" value="Lazy" data-toggle="modal" data-target="#itemModal">Lazy</button>
+    <button type="button" class="btn" value="Productive" data-toggle="modal" data-target="#itemModal">Productive</button>
+    <button type="button" class="btn" value="Sad" data-toggle="modal" data-target="#itemModal">Sad</button>
+    <button type="button" class="btn" value="Stressed" data-toggle="modal" data-target="#itemModal">Stressed</button>
 </div>
 <div class="entrysection">
     <div class="buttonheader">Apetite?</div>
@@ -737,3 +737,212 @@
     </div>
 </div>
 <!-- End Modal for Stats-->
+<!-- Modal for Item-->
+
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title-h1"></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+
+            <div class="create">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="common">
+                        <div class="form-group">
+                            <label asp-for="Item.DateState" class="control-label"></label>
+                            <input asp-for="Item.DateState" class="form-control datestate" />
+                            <span asp-validation-for="Item.DateState" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Notes" class="control-label"></label>
+                            <input asp-for="Item.Notes" class="form-control" />
+                            <span asp-validation-for="Item.Notes" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Item.Cat" class="control-label"></label>
+                        <input asp-for="Item.Cat" class="form-control cat" />
+                        <span asp-validation-for="Item.Cat" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Item.Type" class="control-label"></label>
+                        <input asp-for="Item.Type" class="form-control type" />
+                        <span asp-validation-for="Item.Type" class="text-danger"></span>
+                    </div>
+
+                    <div class="hidden">
+
+                        <div class="form-group">
+                            <label asp-for="Item.Location" class="control-label"></label>
+                            <input asp-for="Item.Location" class="form-control" />
+                            <span asp-validation-for="Item.Location" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.With" class="control-label"></label>
+                            <input asp-for="Item.With" class="form-control" />
+                            <span asp-validation-for="Item.With" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Where" class="control-label"></label>
+                            <input asp-for="Item.Where" class="form-control" />
+                            <span asp-validation-for="Item.Where" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Intensity" class="control-label"></label>
+                            <input asp-for="Item.Intensity" class="form-control" />
+                            <span asp-validation-for="Item.Intensity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Duration" class="control-label"></label>
+                            <input asp-for="Item.Duration" class="form-control" />
+                            <span asp-validation-for="Item.Duration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Dose" class="control-label"></label>
+                            <input asp-for="Item.Dose" class="form-control" />
+                            <span asp-validation-for="Item.Dose" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Vegetable" class="control-label"></label>
+                            <input asp-for="Item.Vegetable" class="form-control" />
+                            <span asp-validation-for="Item.Vegetable" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Meat" class="control-label"></label>
+                            <input asp-for="Item.Meat" class="form-control" />
+                            <span asp-validation-for="Item.Meat" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Fish" class="control-label"></label>
+                            <input asp-for="Item.Fish" class="form-control" />
+                            <span asp-validation-for="Item.Fish" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Eggs" class="control-label"></label>
+                            <input asp-for="Item.Eggs" class="form-control" />
+                            <span asp-validation-for="Item.Eggs" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Cheese" class="control-label"></label>
+                            <input asp-for="Item.Cheese" class="form-control" />
+                            <span asp-validation-for="Item.Cheese" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Yogurt" class="control-label"></label>
+                            <input asp-for="Item.Yogurt" class="form-control" />
+                            <span asp-validation-for="Item.Yogurt" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Fruit" class="control-label"></label>
+                            <input asp-for="Item.Fruit" class="form-control" />
+                            <span asp-validation-for="Item.Fruit" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Bread" class="control-label"></label>
+                            <input asp-for="Item.Bread" class="form-control" />
+                            <span asp-validation-for="Item.Bread" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Rice" class="control-label"></label>
+                            <input asp-for="Item.Rice" class="form-control" />
+                            <span asp-validation-for="Item.Rice" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Potatoes" class="control-label"></label>
+                            <input asp-for="Item.Potatoes" class="form-control" />
+                            <span asp-validation-for="Item.Potatoes" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Pasta" class="control-label"></label>
+                            <input asp-for="Item.Pasta" class="form-control" />
+                            <span asp-validation-for="Item.Pasta" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Beans" class="control-label"></label>
+                            <input asp-for="Item.Beans" class="form-control" />
+                            <span asp-validation-for="Item.Beans" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Nuts" class="control-label"></label>
+                            <input asp-for="Item.Nuts" class="form-control" />
+                            <span asp-validation-for="Item.Nuts" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Oils" class="control-label"></label>
+                            <input asp-for="Item.Oils" class="form-control" />
+                            <span asp-validation-for="Item.Oils" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Butter" class="control-label"></label>
+                            <input asp-for="Item.Butter" class="form-control" />
+                            <span asp-validation-for="Item.Butter" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Sweats" class="control-label"></label>
+                            <input asp-for="Item.Sweats" class="form-control" />
+                            <span asp-validation-for="Item.Sweats" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Water" class="control-label"></label>
+                            <input asp-for="Item.Water" class="form-control" />
+                            <span asp-validation-for="Item.Water" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Soda" class="control-label"></label>
+                            <input asp-for="Item.Soda" class="form-control" />
+                            <span asp-validation-for="Item.Soda" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.DietSoda" class="control-label"></label>
+                            <input asp-for="Item.DietSoda" class="form-control" />
+                            <span asp-validation-for="Item.DietSoda" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Juice" class="control-label"></label>
+                            <input asp-for="Item.Juice" class="form-control" />
+                            <span asp-validation-for="Item.Juice" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Beer" class="control-label"></label>
+                            <input asp-for="Item.Beer" class="form-control" />
+                            <span asp-validation-for="Item.Beer" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Wine" class="control-label"></label>
+                            <input asp-for="Item.Wine" class="form-control" />
+                            <span asp-validation-for="Item.Wine" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Liquor" class="control-label"></label>
+                            <input asp-for="Item.Liquor" class="form-control" />
+                            <span asp-validation-for="Item.Liquor" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Item.Coffee" class="control-label"></label>
+                            <input asp-for="Item.Coffee" class="form-control" />
+                            <span asp-validation-for="Item.Coffee" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" formaction="additem" formmethod="post" value="Submit" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Modal for Item-->
