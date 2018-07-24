@@ -8,16 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using beingabeing.Data;
 using beingabeing.Models;
 using Microsoft.AspNetCore.Identity;
+using beingabeing.Models.ViewModels;
 
 namespace beingabeing.Controllers
 {
-    public class AppetitesController : Controller
+    public class RecentController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        public string _ownerid;
+        private string _ownerid;
 
-        public AppetitesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public RecentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -25,19 +26,21 @@ namespace beingabeing.Controllers
 
         
 
-        public IList<Appetite> Appetite { get; set; }
-
-        // GET: Appetites
+        // GET: Recent
         public async Task<IActionResult> Index()
         {
+            List<RecentItemsViewModel> recentitems = new List<RecentItemsViewModel>();
             _ownerid = _userManager.GetUserId(User);
-            var appetiteitems = from a in _context.Appetite select a;
-            appetiteitems = appetiteitems.Where(a => a.OwnerID == _ownerid);
-            Appetite = await appetiteitems.ToListAsync();
-            return View(Appetite);
+
+                var dbitems = (from a in _context.Appetite
+                                     select new RecentItemsViewModel { RiModeItemID = a.ID, RiCat = a.Cat, RiDateTime = a.DateState, RiType = a.Type, RiOwnerID = a.OwnerID });
+                dbitems = dbitems.Where(a => a.RiOwnerID == _ownerid);
+                recentitems = dbitems.ToList();
+            
+            return View(recentitems);
         }
 
-        // GET: Appetites/Details/5
+        // GET: Recent/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,39 +48,39 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var appetite = await _context.Appetite
+            var consuming = await _context.Consumings
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (appetite == null)
+            if (consuming == null)
             {
                 return NotFound();
             }
 
-            return View(appetite);
+            return View(consuming);
         }
 
-        // GET: Appetites/Create
+        // GET: Recent/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Appetites/Create
+        // POST: Recent/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Appetite appetite)
+        public async Task<IActionResult> Create([Bind("OwnerID,ID,Cat,Type,Vegetable,Meat,Fish,Eggs,Cheese,Yogurt,Fruit,Bread,Rice,Potatoes,Pasta,Beans,Nuts,Oils,Butter,Sweats,Water,Soda,DietSoda,Juice,Beer,Wine,Liquor,Coffee,DateState,Location,Notes")] Consuming consuming)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(appetite);
+                _context.Add(consuming);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(appetite);
+            return View(consuming);
         }
 
-        // GET: Appetites/Edit/5
+        // GET: Recent/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,22 +88,22 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var appetite = await _context.Appetite.SingleOrDefaultAsync(m => m.ID == id);
-            if (appetite == null)
+            var consuming = await _context.Consumings.SingleOrDefaultAsync(m => m.ID == id);
+            if (consuming == null)
             {
                 return NotFound();
             }
-            return View(appetite);
+            return View(consuming);
         }
 
-        // POST: Appetites/Edit/5
+        // POST: Recent/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OwnerID,ID,Cat,Type,Notes,DateState,Location")] Appetite appetite)
+        public async Task<IActionResult> Edit(int id, [Bind("OwnerID,ID,Cat,Type,Vegetable,Meat,Fish,Eggs,Cheese,Yogurt,Fruit,Bread,Rice,Potatoes,Pasta,Beans,Nuts,Oils,Butter,Sweats,Water,Soda,DietSoda,Juice,Beer,Wine,Liquor,Coffee,DateState,Location,Notes")] Consuming consuming)
         {
-            if (id != appetite.ID)
+            if (id != consuming.ID)
             {
                 return NotFound();
             }
@@ -109,12 +112,12 @@ namespace beingabeing.Controllers
             {
                 try
                 {
-                    _context.Update(appetite);
+                    _context.Update(consuming);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AppetiteExists(appetite.ID))
+                    if (!ConsumingExists(consuming.ID))
                     {
                         return NotFound();
                     }
@@ -125,10 +128,10 @@ namespace beingabeing.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(appetite);
+            return View(consuming);
         }
 
-        // GET: Appetites/Delete/5
+        // GET: Recent/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,30 +139,30 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var appetite = await _context.Appetite
+            var consuming = await _context.Consumings
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (appetite == null)
+            if (consuming == null)
             {
                 return NotFound();
             }
 
-            return View(appetite);
+            return View(consuming);
         }
 
-        // POST: Appetites/Delete/5
+        // POST: Recent/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var appetite = await _context.Appetite.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Appetite.Remove(appetite);
+            var consuming = await _context.Consumings.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Consumings.Remove(consuming);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AppetiteExists(int id)
+        private bool ConsumingExists(int id)
         {
-            return _context.Appetite.Any(e => e.ID == id);
+            return _context.Consumings.Any(e => e.ID == id);
         }
     }
 }

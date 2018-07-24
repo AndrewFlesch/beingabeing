@@ -9,6 +9,7 @@ namespace beingabeing.Models.ViewModels
     public class HomeViewModel
     {
         [BindProperty]
+        public Item Item { get; set; }
         public Appetite Appetite { get; set; }
         public Consuming Consuming { get; set; }
         public EmotionalStates EmotionalStates { get; set; }

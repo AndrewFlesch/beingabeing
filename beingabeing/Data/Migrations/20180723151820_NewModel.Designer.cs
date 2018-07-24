@@ -11,9 +11,10 @@ using System;
 namespace beingabeing.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180723151820_NewModel")]
+    partial class NewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,75 +191,23 @@ namespace beingabeing.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Beans");
-
-                    b.Property<int>("Beer");
-
-                    b.Property<int>("Bread");
-
-                    b.Property<int>("Butter");
-
                     b.Property<string>("Cat");
-
-                    b.Property<int>("Cheese");
-
-                    b.Property<int>("Coffee");
 
                     b.Property<DateTime>("DateState");
 
-                    b.Property<int>("DietSoda");
-
-                    b.Property<string>("Dose");
-
                     b.Property<int>("Duration");
 
-                    b.Property<int>("Eggs");
-
-                    b.Property<int>("Fish");
-
-                    b.Property<int>("Fruit");
-
-                    b.Property<string>("Intensity");
-
-                    b.Property<int>("Juice");
-
-                    b.Property<int>("Liquor");
+                    b.Property<int>("Group");
 
                     b.Property<string>("Location");
 
-                    b.Property<int>("Meat");
-
                     b.Property<string>("Notes");
-
-                    b.Property<int>("Nuts");
-
-                    b.Property<int>("Oils");
 
                     b.Property<string>("OwnerID");
 
-                    b.Property<int>("Pasta");
-
-                    b.Property<int>("Potatoes");
-
-                    b.Property<int>("Rice");
-
-                    b.Property<int>("Soda");
-
-                    b.Property<int>("Sweats");
+                    b.Property<string>("Quantity");
 
                     b.Property<string>("Type");
-
-                    b.Property<int>("Vegetable");
-
-                    b.Property<int>("Water");
-
-                    b.Property<string>("Where");
-
-                    b.Property<int>("Wine");
-
-                    b.Property<string>("With");
-
-                    b.Property<int>("Yogurt");
 
                     b.HasKey("ID");
 

@@ -576,7 +576,7 @@
                         <input asp-for="Working.DateState" type="datetime-local" class="form-control datestate" />
                         <span asp-validation-for="Working.DateState" class="text-danger"></span>
                     </div>
-                    <input type="submit" formaction="addworking" formmethod="post" value="Submit" class="btn btn-default" />
+                    <input type="submit" formaction="additem" formmethod="post" value="Submit" class="btn btn-default" />
 
                 </form>
 
@@ -638,7 +638,6 @@
     </div>
 </div>
 <!-- End Modal for Work-->
-
 <!-- Modal for Stats-->
 <div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -657,13 +656,13 @@
                         <div class="buttonheader">Height and Weight</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.Weight" type="number" class="form-control" placeholder="Weight"  />
+                                <input asp-for="Stats.Weight" type="number" class="form-control" placeholder="Weight" />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.Height" type="number" class="form-control" placeholder="Height"  />
+                                <input asp-for="Stats.Height" type="number" class="form-control" placeholder="Height" />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.BodyFat" type="number" class="form-control" placeholder="Body Fat"/>
+                                <input asp-for="Stats.BodyFat" type="number" class="form-control" placeholder="Body Fat" />
                             </div>
                         </div>
                     </div>
@@ -672,10 +671,10 @@
                         <div class="buttonheader">Blood Pressure</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.Systolic" type="number" class="form-control" placeholder="Systolic"  />
+                                <input asp-for="Stats.Systolic" type="number" class="form-control" placeholder="Systolic" />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.Diastolic" type="number" class="form-control" placeholder="Diastolic"  />
+                                <input asp-for="Stats.Diastolic" type="number" class="form-control" placeholder="Diastolic" />
                             </div>
 
                         </div>
@@ -685,13 +684,13 @@
                         <div class="buttonheader">Cholesterol</div>
                         <div class="row">
                             <div class="col-md-4">
-                                <input asp-for="Stats.LDL" type="number" class="form-control" placeholder="LDL"  />
+                                <input asp-for="Stats.LDL" type="number" class="form-control" placeholder="LDL" />
                             </div>
                             <div class="col-md-4">
                                 <input asp-for="Stats.HDL" type="number" class="form-control" placeholder="HDL" />
                             </div>
                             <div class="col-md-4">
-                                <input asp-for="Stats.VLDL" type="number" class="form-control" placeholder="VLDL"  />
+                                <input asp-for="Stats.VLDL" type="number" class="form-control" placeholder="VLDL" />
                             </div>
                         </div>
                     </div>
@@ -700,7 +699,7 @@
                         <div class="buttonheader">Measurements (inches)</div>
                         <div class="row">
                             <div class="col-md-3">
-                                <input asp-for="Stats.Waist" type="number" class="form-control" placeholder="Waist"/>
+                                <input asp-for="Stats.Waist" type="number" class="form-control" placeholder="Waist" />
                             </div>
                             <div class="col-md-3">
                                 <input asp-for="Stats.Chest" type="number" class="form-control" placeholder="Chest" />

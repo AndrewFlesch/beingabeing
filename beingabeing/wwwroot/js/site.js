@@ -137,4 +137,4 @@ $(".locationbuttons .btn").click(function () {
 
 $("#close").click(function () {
     $("#stateform").css("display", "none");
-    });
+});

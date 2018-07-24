@@ -1,0 +1,56 @@
+﻿@model IEnumerable<beingabeing.Models.ViewModels.RecentItemsViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RiOwnerID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RiCat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RiType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RiDateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RiModeItemID)
+                </th>
+                
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiOwnerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiCat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiModeItemID)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

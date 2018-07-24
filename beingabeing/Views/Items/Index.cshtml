@@ -1,0 +1,247 @@
+﻿@model IEnumerable<beingabeing.Models.Item>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OwnerID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateState)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.With)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Where)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Intensity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Duration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dose)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vegetable)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Meat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fish)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Eggs)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cheese)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Yogurt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fruit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bread)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Potatoes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pasta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Beans)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nuts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Oils)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Butter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sweats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Water)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DietSoda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Juice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Beer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Wine)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Liquor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Coffee)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.With)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Where)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intensity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vegetable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eggs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cheese)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yogurt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fruit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bread)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Potatoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beans)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nuts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oils)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Butter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sweats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DietSoda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Juice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Liquor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coffee)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

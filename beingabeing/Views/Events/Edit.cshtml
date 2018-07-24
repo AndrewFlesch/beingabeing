@@ -1,0 +1,205 @@
+﻿@model beingabeing.Models.Event
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OwnerID" class="control-label"></label>
+                <input asp-for="OwnerID" class="form-control" />
+                <span asp-validation-for="OwnerID" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Cat" class="control-label"></label>
+                <input asp-for="Cat" class="form-control" />
+                <span asp-validation-for="Cat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateState" class="control-label"></label>
+                <input asp-for="DateState" class="form-control" />
+                <span asp-validation-for="DateState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="With" class="control-label"></label>
+                <input asp-for="With" class="form-control" />
+                <span asp-validation-for="With" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Where" class="control-label"></label>
+                <input asp-for="Where" class="form-control" />
+                <span asp-validation-for="Where" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intensity" class="control-label"></label>
+                <input asp-for="Intensity" class="form-control" />
+                <span asp-validation-for="Intensity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dose" class="control-label"></label>
+                <input asp-for="Dose" class="form-control" />
+                <span asp-validation-for="Dose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vegetable" class="control-label"></label>
+                <input asp-for="Vegetable" class="form-control" />
+                <span asp-validation-for="Vegetable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meat" class="control-label"></label>
+                <input asp-for="Meat" class="form-control" />
+                <span asp-validation-for="Meat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fish" class="control-label"></label>
+                <input asp-for="Fish" class="form-control" />
+                <span asp-validation-for="Fish" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eggs" class="control-label"></label>
+                <input asp-for="Eggs" class="form-control" />
+                <span asp-validation-for="Eggs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cheese" class="control-label"></label>
+                <input asp-for="Cheese" class="form-control" />
+                <span asp-validation-for="Cheese" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yogurt" class="control-label"></label>
+                <input asp-for="Yogurt" class="form-control" />
+                <span asp-validation-for="Yogurt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fruit" class="control-label"></label>
+                <input asp-for="Fruit" class="form-control" />
+                <span asp-validation-for="Fruit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bread" class="control-label"></label>
+                <input asp-for="Bread" class="form-control" />
+                <span asp-validation-for="Bread" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rice" class="control-label"></label>
+                <input asp-for="Rice" class="form-control" />
+                <span asp-validation-for="Rice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Potatoes" class="control-label"></label>
+                <input asp-for="Potatoes" class="form-control" />
+                <span asp-validation-for="Potatoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pasta" class="control-label"></label>
+                <input asp-for="Pasta" class="form-control" />
+                <span asp-validation-for="Pasta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beans" class="control-label"></label>
+                <input asp-for="Beans" class="form-control" />
+                <span asp-validation-for="Beans" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nuts" class="control-label"></label>
+                <input asp-for="Nuts" class="form-control" />
+                <span asp-validation-for="Nuts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oils" class="control-label"></label>
+                <input asp-for="Oils" class="form-control" />
+                <span asp-validation-for="Oils" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Butter" class="control-label"></label>
+                <input asp-for="Butter" class="form-control" />
+                <span asp-validation-for="Butter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sweats" class="control-label"></label>
+                <input asp-for="Sweats" class="form-control" />
+                <span asp-validation-for="Sweats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Water" class="control-label"></label>
+                <input asp-for="Water" class="form-control" />
+                <span asp-validation-for="Water" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soda" class="control-label"></label>
+                <input asp-for="Soda" class="form-control" />
+                <span asp-validation-for="Soda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DietSoda" class="control-label"></label>
+                <input asp-for="DietSoda" class="form-control" />
+                <span asp-validation-for="DietSoda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Juice" class="control-label"></label>
+                <input asp-for="Juice" class="form-control" />
+                <span asp-validation-for="Juice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beer" class="control-label"></label>
+                <input asp-for="Beer" class="form-control" />
+                <span asp-validation-for="Beer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wine" class="control-label"></label>
+                <input asp-for="Wine" class="form-control" />
+                <span asp-validation-for="Wine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Liquor" class="control-label"></label>
+                <input asp-for="Liquor" class="form-control" />
+                <span asp-validation-for="Liquor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coffee" class="control-label"></label>
+                <input asp-for="Coffee" class="form-control" />
+                <span asp-validation-for="Coffee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

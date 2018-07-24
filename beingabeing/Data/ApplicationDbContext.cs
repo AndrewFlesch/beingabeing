@@ -10,6 +10,8 @@ namespace beingabeing.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        internal object item;
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -23,6 +25,7 @@ namespace beingabeing.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
+        public DbSet<Item> Event { get; set; }
         public DbSet<Appetite> Appetite { get; set; }
         public DbSet<Consuming> Consumings { get; set; }
         public DbSet<EmotionalStates> EmotionalStates { get; set; }
