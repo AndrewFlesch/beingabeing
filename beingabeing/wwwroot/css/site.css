@@ -181,3 +181,15 @@
     margin-right:5px;
 }
 
+.pills {
+    display:none;
+}
+.exercise {
+    display:none;
+}
+.poop {
+    display:none;
+}
+.food {
+    display:none;
+}

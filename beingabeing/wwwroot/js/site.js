@@ -86,7 +86,26 @@ $(".entrysection .btn").click(function () {
     let cat = $(this).attr("cat");
     $(".cat").val(cat);
     $(".datestate").val(moment().format('YYYY-MM-DDTHH:mm:ss'));
-
+    if (cat == "Medicine") {
+        $(".pills").css("display", "block");
+    } else {
+        $(".pills").css("display", "none");
+    }
+    if (cat == "Exercise") {
+        $(".exercise").css("display", "block");
+    } else {
+        $(".exercise").css("display", "none");
+    }
+    if (cat == "Poop") {
+        $(".poop").css("display", "block");
+    } else {
+        $(".poop").css("display", "none");
+    }
+    if (cat == "Food" || "Drink") {
+        $(".food").css("display", "block");
+    } else {
+        $(".food").css("display", "none");
+    }
 });
 
 $(".location .btn").click(function () {

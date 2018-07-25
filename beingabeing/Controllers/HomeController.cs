@@ -66,7 +66,7 @@ namespace beingabeing.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("/additem")]
-        public async Task<IActionResult> CreateItem([Bind("ID,Cat,Type,Notes,DateState,Location")] Item item)
+        public async Task<IActionResult> CreateItem([Bind("Cat,Type,Notes,DateState,Location,With,Where,Intensity,Duration,Dose,Vegetable,Meat,Fish,Eggs,Cheese,Yogurt,Fruit,Bread,Rice,Potatoes,Pasta,Beans,Nuts,Oils,Butter,Sweats,Water,Soda,DietSoda,Juice,Beer,Wine,Liquor,Coffee")] Item item)
         {
             item.OwnerID = _userManager.GetUserId(User);
 
