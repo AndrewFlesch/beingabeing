@@ -36,7 +36,7 @@
     <button type="button" class="btn" value="Exercising" name="Exercising" data-toggle="modal" cat="Exercise" data-target="#itemModal">Exercising</button>
     <button type="button" class="btn" value="Pills" name="Pills" cat="Medicine" data-toggle="modal" data-target="#itemModal">Pills/Medicine</button>
     <button type="button" class="btn" value="Pooping" name="Pooping" cat="Poop" data-toggle="modal" data-target="#itemModal">Pooping</button>
-    <button type="button" class="btn" value="Socializing" name="Socializing" data-toggle="modal" data-target="#socializingModal">Socializing</button>
+    <button type="button" class="btn" value="Socializing" name="Socializing" cat="Socializing" data-toggle="modal" data-target="#itemModal">Socializing</button>
     <button type="button" class="btn" value="Working" name="Working" data-toggle="modal" data-target="#workingModal">Working</button>
     <button type="button" class="btn" value="Sleeping" name="Sleeping" data-toggle="modal" data-target="#sleepingModal">Sleep</button>
 
@@ -48,190 +48,8 @@
     <button type="button" class="btn" value="profile" data-toggle="modal" data-target="#profileModal">My Profile</button>
 </div>
 
-<!-- Modal for Eating-->
-<div class="modal fade" id="eatingModal" tabindex="-1" role="dialog" aria-labelledby="eatingModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title-h1">I'm Eating/Drinking</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="food">
-                    <div class="buttonheader">Eating? Click button to add portions</div>
-                    <button type="button" class="btn" name="Beans" value="0">Beans:0</button>
-                    <button type="button" class="btn" name="Bread" value="0">Bread:0</button>
-                    <button type="button" class="btn" name="Butter" value="0">Butter:0</button>
-                    <button type="button" class="btn" name="Cheese" value="0">Cheese:0</button>
-                    <button type="button" class="btn" name="Eggs" value="0">Eggs:0</button>
-                    <button type="button" class="btn" name="Fish" value="0">Fish:0</button>
-                    <button type="button" class="btn" name="Fruit" value="0">Fruit:0</button>
-                    <button type="button" class="btn" name="Meat" value="0">Meat:0</button>
-                    <button type="button" class="btn" name="Nuts" value="0">Nuts:0</button>
-                    <button type="button" class="btn" name="Oils" value="0">Oils:0</button>
-                    <button type="button" class="btn" name="Pasta" value="0">Pasta:0</button>
-                    <button type="button" class="btn" name="Potatoes" value="0">Potatoes:0</button>
-                    <button type="button" class="btn" name="Rice" value="0">Rice:0</button>
-                    <button type="button" class="btn" name="Sweats" value="0">Sweats:0</button>
-                    <button type="button" class="btn" name="Vegetable" value="0">Vegetable:0</button>
-                    <button type="button" class="btn" name="Yogurt" value="0">Yogurt:0</button>
-                    <div class="buttonheader">Drinking? Click button to add portions</div>
-                    <button type="button" class="btn" name="Water" value="0">Water:0</button>
-                    <button type="button" class="btn" name="Soda" value="0">Soda:0</button>
-                    <button type="button" class="btn" name="DietSoda" value="0">DietSoda:0</button>
-                    <button type="button" class="btn" name="Juice" value="0">Juice:0</button>
-                    <button type="button" class="btn" name="Beer" value="0">Beer:0</button>
-                    <button type="button" class="btn" name="Wine" value="0">Wine:0</button>
-                    <button type="button" class="btn" name="Liquor" value="0">Liquor:0</button>
-                    <button type="button" class="btn" name="Coffee" value="0">Coffee:0</button>
-
-                </div>
-                <div class="location">
-                    <div class="buttonheader">Location?</div>
-                    <button type="button" class="btn" value="Home">Home</button>
-                    <button type="button" class="btn" value="Work">Work</button>
-                    <button type="button" class="btn" value="Vacation">Vacation</button>
-                    <button type="button" class="btn" value="Out Fun">Out Fun</button>
-                    <button type="button" class="btn" value="Out Errands">Out Errands</button>
-                    <button type="button" class="btn" value="Out Other">Out Other</button>
-                </div>
-                <form method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input asp-for="Consuming.Type" class="form-control type" />
-                    <input asp-for="Consuming.Location" class="form-control loc" />
-
-                    <input asp-for="Consuming.Beans" class="form-control" id="Beans" value="0" />
-                    <input asp-for="Consuming.Bread" class="form-control" id="Bread" value="0" />
-                    <input asp-for="Consuming.Butter" class="form-control" id="Butter" value="0" />
-                    <input asp-for="Consuming.Cheese" class="form-control" id="Cheese" value="0" />
-                    <input asp-for="Consuming.Eggs" class="form-control" id="Eggs" value="0" />
-                    <input asp-for="Consuming.Fish" class="form-control" id="Fish" value="0" />
-                    <input asp-for="Consuming.Fruit" class="form-control" id="Fruit" value="0" />
-                    <input asp-for="Consuming.Meat" class="form-control" id="Meat" value="0" />
-                    <input asp-for="Consuming.Nuts" class="form-control" id="Nuts" value="0" />
-                    <input asp-for="Consuming.Oils" class="form-control" id="Oils" value="0" />
-                    <input asp-for="Consuming.Pasta" class="form-control" id="Pasta" value="0" />
-                    <input asp-for="Consuming.Potatoes" class="form-control" id="Potatoes" value="0" />
-                    <input asp-for="Consuming.Rice" class="form-control" id="Rice" value="0" />
-                    <input asp-for="Consuming.Sweats" class="form-control" id="Sweats" value="0" />
-                    <input asp-for="Consuming.Vegetable" class="form-control" id="Vegetable" value="0" />
-                    <input asp-for="Consuming.Yogurt" class="form-control" id="Yogurt" value="0" />
-                    <input asp-for="Consuming.Water" class="form-control" id="Water" value="0" />
-                    <input asp-for="Consuming.Soda" class="form-control" id="Soda" value="0" />
-                    <input asp-for="Consuming.DietSoda" class="form-control" id="DietSoda" value="0" />
-                    <input asp-for="Consuming.Juice" class="form-control" id="Juice" value="0" />
-                    <input asp-for="Consuming.Beer" class="form-control" id="Beer" value="0" />
-                    <input asp-for="Consuming.Wine" class="form-control" id="Wine" value="0" />
-                    <input asp-for="Consuming.Liquor" class="form-control" id="Liquor" value="0" />
-                    <input asp-for="Consuming.Coffee" class="form-control" id="Coffee" value="0" />
 
 
-                    <div class="form-group">
-                        <label asp-for="Consuming.Notes" class="control-label"></label>
-                        <textarea asp-for="Consuming.Notes" class="form-control"></textarea>
-                        <span asp-validation-for="Consuming.Notes" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Sickness.DateState" class="control-label">When</label>
-                        <input asp-for="Sickness.DateState" type="datetime-local" class="form-control datestate" />
-                        <span asp-validation-for="Sickness.DateState" class="text-danger"></span>
-                    </div>
-                    <input type="submit" formaction="addconsuming" formmethod="post" value="Submit" class="btn btn-default" />
-
-                </form>
-
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- End Modal for Eating-->
-
-
-<!-- Modal for Social-->
-<div class="modal fade" id="socializingModal" tabindex="-1" role="dialog" aria-labelledby="socializingModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title-h1">I'm Socializing</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="entrysection">
-                    <div class="buttonheader">What?</div>
-                    <button type="button" class="btn" value="Birthday Party">Birthday Party</button>
-                    <button type="button" class="btn" value="Concert">Concert</button>
-                    <button type="button" class="btn" value="Dancing">Dancing</button>
-                    <button type="button" class="btn" value="Dinner">Dinner</button>
-                    <button type="button" class="btn" value="Drinks">Drinks</button>
-                    <button type="button" class="btn" value="Movie">Movie</button>
-                    <button type="button" class="btn" value="Museam">Museam</button>
-                    <button type="button" class="btn" value="Park">Park</button>
-                    <button type="button" class="btn" value="Party">Party</button>
-                    <button type="button" class="btn" value="Sporting Event">Sporting Event</button>
-                    <button type="button" class="btn" value="Theater">Theater</button>
-                    <button type="button" class="btn" value="Wedding">Wedding</button>
-                    <button type="button" class="btn" value="Zoo">Zoo</button>
-
-                </div>
-                <div class="socialwith">
-                    <div class="buttonheader">With</div>
-                    <button type="button" class="btn" value="Alone">Alone</button>
-                    <button type="button" class="btn" value="Date">Date</button>
-                    <button type="button" class="btn" value="Friend(s)">Friend(s)</button>
-                    <button type="button" class="btn" value="Spouse">Spouse</button>
-                    <button type="button" class="btn" value="Family">Family</button>
-                    <button type="button" class="btn" value="Coworkers">Coworkers</button>
-                    <button type="button" class="btn" value="Extended Family">Extended Family</button>
-
-                </div>
-                <div class="socialwhere">
-                    <div class="buttonheader">Where</div>
-                    <button type="button" class="btn" value="Bar">Bar</button>
-                    <button type="button" class="btn" value="Club">Club</button>
-                    <button type="button" class="btn" value="House">House</button>
-                    <button type="button" class="btn" value="Movie">Movie</button>
-                    <button type="button" class="btn" value="Restaurant">Restaurant</button>
-                    <button type="button" class="btn" value="Stadium">Stadium</button>
-                    <button type="button" class="btn" value="Theater">Theater</button>
-                    <button type="button" class="btn" value="Work">Work</button>
-                </div>
-
-                <form method="post">
-                    <input asp-for="Social.Where" class="form-control swhere" />
-                    <input asp-for="Social.With" class="form-control swith" />
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input asp-for="Social.Type" class="form-control type" />
-
-                    <div class="form-group">
-                        <label asp-for="Social.Notes" class="control-label"></label>
-                        <textarea asp-for="Social.Notes" class="form-control"></textarea>
-                        <span asp-validation-for="Social.Notes" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="Social.DateState" class="control-label">When</label>
-                        <input asp-for="Social.DateState" type="datetime-local" class="form-control datestate" />
-                        <span asp-validation-for="Social.DateState" class="text-danger"></span>
-                    </div>
-                    <input type="submit" formaction="addsocial" formmethod="post" value="Submit" class="btn btn-default" />
-
-                </form>
-
-
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Modal for Social-->
 <!-- Modal for Working-->
 <div class="modal fade" id="workingModal" tabindex="-1" role="dialog" aria-labelledby="workingModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -434,35 +252,78 @@
             </div>
             <div class="modal-body">
 
+                <div class="social">
+                    <div class="entrysection">
+                        <div class="buttonheader">What?</div>
+                        <button type="button" class="btn" value="Birthday Party">Birthday Party</button>
+                        <button type="button" class="btn" value="Concert">Concert</button>
+                        <button type="button" class="btn" value="Dancing">Dancing</button>
+                        <button type="button" class="btn" value="Dinner">Dinner</button>
+                        <button type="button" class="btn" value="Drinks">Drinks</button>
+                        <button type="button" class="btn" value="Movie">Movie</button>
+                        <button type="button" class="btn" value="Museam">Museam</button>
+                        <button type="button" class="btn" value="Park">Park</button>
+                        <button type="button" class="btn" value="Party">Party</button>
+                        <button type="button" class="btn" value="Sporting Event">Sporting Event</button>
+                        <button type="button" class="btn" value="Theater">Theater</button>
+                        <button type="button" class="btn" value="Wedding">Wedding</button>
+                        <button type="button" class="btn" value="Zoo">Zoo</button>
+
+                    </div>
+                    <div class="socialwith">
+                        <div class="buttonheader">With</div>
+                        <button type="button" class="btn" value="Alone">Alone</button>
+                        <button type="button" class="btn" value="Date">Date</button>
+                        <button type="button" class="btn" value="Friend(s)">Friend(s)</button>
+                        <button type="button" class="btn" value="Spouse">Spouse</button>
+                        <button type="button" class="btn" value="Family">Family</button>
+                        <button type="button" class="btn" value="Coworkers">Coworkers</button>
+                        <button type="button" class="btn" value="Extended Family">Extended Family</button>
+
+                    </div>
+                    <div class="socialwhere">
+                        <div class="buttonheader">Where</div>
+                        <button type="button" class="btn" value="Bar">Bar</button>
+                        <button type="button" class="btn" value="Club">Club</button>
+                        <button type="button" class="btn" value="House">House</button>
+                        <button type="button" class="btn" value="Movie">Movie</button>
+                        <button type="button" class="btn" value="Restaurant">Restaurant</button>
+                        <button type="button" class="btn" value="Stadium">Stadium</button>
+                        <button type="button" class="btn" value="Theater">Theater</button>
+                        <button type="button" class="btn" value="Work">Work</button>
+                    </div>
+                </div>
+
                 <div class="food">
-                <div class="buttonheader">Eating? Click button to add portions</div>
-                    <button type="button" class="btn" name="Beans" cat="Food" value="0">Beans:0</button>
-                    <button type="button" class="btn" name="Bread" cat="Food" value="0">Bread:0</button>
-                    <button type="button" class="btn" name="Butter" cat="Food" value="0">Butter:0</button>
-                    <button type="button" class="btn" name="Cheese" cat="Food" value="0">Cheese:0</button>
-                    <button type="button" class="btn" name="Eggs"cat="Food" value="0">Eggs:0</button>
-                    <button type="button" class="btn" name="Fish" cat="Food" value="0">Fish:0</button>
-                    <button type="button" class="btn" name="Fruit"cat="Food" value="0">Fruit:0</button>
-                    <button type="button" class="btn" name="Meat" cat="Food" value="0">Meat:0</button>
-                    <button type="button" class="btn" name="Nuts" cat="Food" value="0">Nuts:0</button>
-                    <button type="button" class="btn" name="Oils" cat="Food" value="0">Oils:0</button>
-                    <button type="button" class="btn" name="Pasta" cat="Food" value="0">Pasta:0</button>
-                    <button type="button" class="btn" name="Potatoes" cat="Food" value="0">Potatoes:0</button>
-                    <button type="button" class="btn" name="Rice" cat="Food" value="0">Rice:0</button>
-                    <button type="button" class="btn" name="Sweats" cat="Food" value="0">Sweats:0</button>
-                    <button type="button" class="btn" name="Vegetable" cat="Food" value="0">Vegetable:0</button>
-                    <button type="button" class="btn" name="Yogurt" cat="Food" value="0">Yogurt:0</button>
+                    <div class="entrysection">
+                        <div class="buttonheader">Eating? Click button to add portions</div>
+                        <button type="button" class="btn" name="Beans" cat="Food" value="0">Beans:0</button>
+                        <button type="button" class="btn" name="Bread" cat="Food" value="0">Bread:0</button>
+                        <button type="button" class="btn" name="Butter" cat="Food" value="0">Butter:0</button>
+                        <button type="button" class="btn" name="Cheese" cat="Food" value="0">Cheese:0</button>
+                        <button type="button" class="btn" name="Eggs" cat="Food" value="0">Eggs:0</button>
+                        <button type="button" class="btn" name="Fish" cat="Food" value="0">Fish:0</button>
+                        <button type="button" class="btn" name="Fruit" cat="Food" value="0">Fruit:0</button>
+                        <button type="button" class="btn" name="Meat" cat="Food" value="0">Meat:0</button>
+                        <button type="button" class="btn" name="Nuts" cat="Food" value="0">Nuts:0</button>
+                        <button type="button" class="btn" name="Oils" cat="Food" value="0">Oils:0</button>
+                        <button type="button" class="btn" name="Pasta" cat="Food" value="0">Pasta:0</button>
+                        <button type="button" class="btn" name="Potatoes" cat="Food" value="0">Potatoes:0</button>
+                        <button type="button" class="btn" name="Rice" cat="Food" value="0">Rice:0</button>
+                        <button type="button" class="btn" name="Sweats" cat="Food" value="0">Sweats:0</button>
+                        <button type="button" class="btn" name="Vegetable" cat="Food" value="0">Vegetable:0</button>
+                        <button type="button" class="btn" name="Yogurt" cat="Food" value="0">Yogurt:0</button>
 
-                <div class="buttonheader">Drinking? Click button to add portions</div>
-                    <button type="button" class="btn" name="Water" cat="Drink" value="0">Water:0</button>
-                    <button type="button" class="btn" name="Soda" cat="Drink" value="0">Soda:0</button>
-                    <button type="button" class="btn" name="DietSoda" cat="Drink" value="0">DietSoda:0</button>
-                    <button type="button" class="btn" name="Juice" cat="Drink" value="0">Juice:0</button>
-                    <button type="button" class="btn" name="Beer" cat="Drink" value="0">Beer:0</button>
-                    <button type="button" class="btn" name="Wine" cat="Drink" value="0">Wine:0</button>
-                    <button type="button" class="btn" name="Liquor" cat="Drink" value="0">Liquor:0</button>
-                    <button type="button" class="btn" name="Coffee" cat="Drink" value="0">Coffee:0</button>
-
+                        <div class="buttonheader">Drinking? Click button to add portions</div>
+                        <button type="button" class="btn" name="Water" cat="Drink" value="0">Water:0</button>
+                        <button type="button" class="btn" name="Soda" cat="Drink" value="0">Soda:0</button>
+                        <button type="button" class="btn" name="DietSoda" cat="Drink" value="0">DietSoda:0</button>
+                        <button type="button" class="btn" name="Juice" cat="Drink" value="0">Juice:0</button>
+                        <button type="button" class="btn" name="Beer" cat="Drink" value="0">Beer:0</button>
+                        <button type="button" class="btn" name="Wine" cat="Drink" value="0">Wine:0</button>
+                        <button type="button" class="btn" name="Liquor" cat="Drink" value="0">Liquor:0</button>
+                        <button type="button" class="btn" name="Coffee" cat="Drink" value="0">Coffee:0</button>
+                    </div>
                 </div>
                 <div class="poop">
                     <div class="entrysection">

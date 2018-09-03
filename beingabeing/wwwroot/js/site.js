@@ -101,10 +101,15 @@ $(".entrysection .btn").click(function () {
     } else {
         $(".poop").css("display", "none");
     }
-    if (cat == "Food" || "Drink") {
+    if (cat == "Food") {
         $(".food").css("display", "block");
     } else {
         $(".food").css("display", "none");
+    }
+    if (cat == "Socializing") {
+        $(".social").css("display", "block");
+    } else {
+        $(".social").css("display", "none");
     }
 });
 
