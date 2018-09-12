@@ -111,6 +111,16 @@ $(".entrysection .btn").click(function () {
     } else {
         $(".social").css("display", "none");
     }
+    if (cat == "Working") {
+        $(".work").css("display", "block");
+    } else if (cat!="Exercise"){
+        $(".work").css("display", "none");
+    }
+    if (cat == "Sleeping") {
+        $(".sleep").css("display", "block");
+    } else if(cat!="Exercise" && cat!="Working") {
+        $(".sleep").css("display", "none");
+    }
 });
 
 $(".location .btn").click(function () {

@@ -22,7 +22,7 @@ namespace beingabeing.Controllers
         // GET: Items
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Event.ToListAsync());
+            return View(await _context.Item.ToListAsync());
         }
 
         // GET: Items/Details/5
@@ -33,7 +33,7 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Event
+            var item = await _context.Item
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (item == null)
             {
@@ -73,7 +73,7 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Event.SingleOrDefaultAsync(m => m.ID == id);
+            var item = await _context.Item.SingleOrDefaultAsync(m => m.ID == id);
             if (item == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace beingabeing.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Event
+            var item = await _context.Item
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (item == null)
             {
@@ -139,15 +139,15 @@ namespace beingabeing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var item = await _context.Event.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Event.Remove(item);
+            var item = await _context.Item.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Item.Remove(item);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ItemExists(int id)
         {
-            return _context.Event.Any(e => e.ID == id);
+            return _context.Item.Any(e => e.ID == id);
         }
     }
 }

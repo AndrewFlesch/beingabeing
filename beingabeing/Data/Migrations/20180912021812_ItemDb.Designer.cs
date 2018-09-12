@@ -11,14 +11,37 @@ using System;
 namespace beingabeing.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180912021812_ItemDb")]
+    partial class ItemDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("beingabeing.Models.Appetite", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Appetite");
+                });
 
             modelBuilder.Entity("beingabeing.Models.ApplicationUser", b =>
                 {
@@ -69,6 +92,122 @@ namespace beingabeing.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Consuming", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Beans");
+
+                    b.Property<int>("Beer");
+
+                    b.Property<int>("Bread");
+
+                    b.Property<int>("Butter");
+
+                    b.Property<string>("Cat");
+
+                    b.Property<int>("Cheese");
+
+                    b.Property<int>("Coffee");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<int>("DietSoda");
+
+                    b.Property<int>("Eggs");
+
+                    b.Property<int>("Fish");
+
+                    b.Property<int>("Fruit");
+
+                    b.Property<int>("Juice");
+
+                    b.Property<int>("Liquor");
+
+                    b.Property<string>("Location");
+
+                    b.Property<int>("Meat");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<int>("Nuts");
+
+                    b.Property<int>("Oils");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<int>("Pasta");
+
+                    b.Property<int>("Potatoes");
+
+                    b.Property<int>("Rice");
+
+                    b.Property<int>("Soda");
+
+                    b.Property<int>("Sweats");
+
+                    b.Property<string>("Type");
+
+                    b.Property<int>("Vegetable");
+
+                    b.Property<int>("Water");
+
+                    b.Property<int>("Wine");
+
+                    b.Property<int>("Yogurt");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Consumings");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.EmotionalStates", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("EmotionalStates");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Exercise", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<int>("Duration");
+
+                    b.Property<string>("Intensity");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Exercise");
                 });
 
             modelBuilder.Entity("beingabeing.Models.Item", b =>
@@ -148,7 +287,121 @@ namespace beingabeing.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Item");
+                    b.ToTable("Event");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Pills", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<string>("Dose");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Pills");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Poop", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<string>("Color");
+
+                    b.Property<string>("Density");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Poop");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Sickness", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Sickness");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Sleep", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<int>("Duration");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.Property<DateTime>("WentDown");
+
+                    b.Property<DateTime>("WokeUp");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Sleep");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Social", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.Property<string>("Where");
+
+                    b.Property<string>("With");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Social");
                 });
 
             modelBuilder.Entity("beingabeing.Models.Stats", b =>
@@ -209,6 +462,28 @@ namespace beingabeing.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Weather");
+                });
+
+            modelBuilder.Entity("beingabeing.Models.Working", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cat");
+
+                    b.Property<DateTime>("DateState");
+
+                    b.Property<int>("Duration");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("OwnerID");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Working");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

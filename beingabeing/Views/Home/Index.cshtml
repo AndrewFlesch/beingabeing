@@ -37,8 +37,8 @@
     <button type="button" class="btn" value="Pills" name="Pills" cat="Medicine" data-toggle="modal" data-target="#itemModal">Pills/Medicine</button>
     <button type="button" class="btn" value="Pooping" name="Pooping" cat="Poop" data-toggle="modal" data-target="#itemModal">Pooping</button>
     <button type="button" class="btn" value="Socializing" name="Socializing" cat="Socializing" data-toggle="modal" data-target="#itemModal">Socializing</button>
-    <button type="button" class="btn" value="Working" name="Working" data-toggle="modal" data-target="#workingModal">Working</button>
-    <button type="button" class="btn" value="Sleeping" name="Sleeping" data-toggle="modal" data-target="#sleepingModal">Sleep</button>
+    <button type="button" class="btn" value="Working" name="Working" cat="Working" data-toggle="modal" data-target="#itemModal">Working</button>
+    <button type="button" class="btn" value="Sleeping" name="Sleeping" cat="Sleeping" data-toggle="modal" data-target="#itemModal">Sleep</button>
 
 </div>
 
@@ -50,45 +50,7 @@
 
 
 
-<!-- Modal for Working-->
-<div class="modal fade" id="workingModal" tabindex="-1" role="dialog" aria-labelledby="workingModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title-h1">I'm Working</h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="buttonheader">What are you working on?</div>
-                <form method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input asp-for="Working.Type" class="form-control type" />
-                    <label asp-for="Working.Duration" class="control-label">Duration in Minutes</label>
-                    <input asp-for="Working.Duration" class="form-control swhere" value="0" />
-                    <div class="form-group">
-                        <label asp-for="Working.Notes" class="control-label"></label>
-                        <textarea asp-for="Working.Notes" class="form-control"></textarea>
-                        <span asp-validation-for="Working.Notes" class="text-danger"></span>
-                    </div>
 
-                    <div class="form-group">
-                        <label asp-for="Working.DateState" class="control-label">When</label>
-                        <input asp-for="Working.DateState" type="datetime-local" class="form-control datestate" />
-                        <span asp-validation-for="Working.DateState" class="text-danger"></span>
-                    </div>
-                    <input type="submit" formaction="additem" formmethod="post" value="Submit" class="btn btn-default" />
-
-                </form>
-
-
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Modal for Work-->
 <!-- Modal for Sleep-->
 <div class="modal fade" id="sleepingModal" tabindex="-1" role="dialog" aria-labelledby="sleepingModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -251,6 +213,17 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="sleep">
+                    <div class="buttonheader">How did you Sleep?</div>
+                    <div class="entrysection">
+                        <div class="buttonheader">Type?</div>
+                        <button type="button" class="btn" cat="Sleeping" value="Normal">Normal</button>
+                        <button type="button" class="btn" cat="Sleeping" value="Well">Well</button>
+                        <button type="button" class="btn" cat="Sleeping" value="Restless">Restless</button>
+                        <button type="button" class="btn" cat="Sleeping" value="Interupted">Interupted</button>
+                        <button type="button" class="btn" cat="Sleeping" value="Uncomfortable">Uncomfortable</button>
+                    </div>
+                </div>
 
                 <div class="social">
                     <div class="entrysection">
@@ -315,7 +288,7 @@
                         <button type="button" class="btn" name="Yogurt" cat="Food" value="0">Yogurt:0</button>
 
                         <div class="buttonheader">Drinking? Click button to add portions</div>
-                        <button type="button" class="btn" name="Water" cat="Drink" value="0">Water:0</button>
+                        <button type="button" class="btn" name="Water" cat="Food" value="0">Water:0</button>
                         <button type="button" class="btn" name="Soda" cat="Drink" value="0">Soda:0</button>
                         <button type="button" class="btn" name="DietSoda" cat="Drink" value="0">DietSoda:0</button>
                         <button type="button" class="btn" name="Juice" cat="Drink" value="0">Juice:0</button>
@@ -370,7 +343,13 @@
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="exerciseduration exercise">
+                        <div class="form-group">
+                            <label asp-for="Item.Type" class="control-label"></label>
+                            <input asp-for="Item.Type" class="form-control type" />
+                            <span asp-validation-for="Item.Type" class="text-danger"></span>
+                        </div>
+
+                        <div class="exerciseduration exercise work sleep">
                             <div class="buttonheader">Duration? In Minutes</div>
                             <input asp-for="Item.Duration" class="dur" />
                             <button type="button" class="btn" value="15">Add 15 minutes</button>
@@ -406,11 +385,7 @@
                             <span asp-validation-for="Item.Cat" class="text-danger"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label asp-for="Item.Type" class="control-label"></label>
-                            <input asp-for="Item.Type" class="form-control type" />
-                            <span asp-validation-for="Item.Type" class="text-danger"></span>
-                        </div>
+
 
                         <div class="hidden">
 

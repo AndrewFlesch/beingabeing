@@ -25,19 +25,10 @@ namespace beingabeing.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<Item> Event { get; set; }
-        public DbSet<Appetite> Appetite { get; set; }
-        public DbSet<Consuming> Consumings { get; set; }
-        public DbSet<EmotionalStates> EmotionalStates { get; set; }
-        public DbSet<Exercise> Exercise { get; set; }
-        public DbSet<Pills> Pills { get; set; }
-        public DbSet<Poop> Poop { get; set; }
-        public DbSet<Sickness> Sickness { get; set; }
-        public DbSet<Sleep> Sleep { get; set; }
-        public DbSet<Social> Social { get; set; }
+        public DbSet<Item> Item { get; set; }
         public DbSet<Stats> Stats { get; set; }
         public DbSet<Weather> Weather { get; set; }
-        public DbSet<Working> Working { get; set; }
+
     }
 }
 
